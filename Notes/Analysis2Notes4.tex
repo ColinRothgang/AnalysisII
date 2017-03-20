@@ -1,0 +1,47 @@
+\begin{defn}
+ Let $f:\Set{U}\to\RR$ be some function and $x_0$ an accumulation point of $\Set{U}$. We say that $f$ is differentiable in $x_0$ iff $\exists \lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}=:f'(x)$. Another way to write this is $\exists \lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}=:f'(x)$. 
+\end{defn}
+\begin{rem}
+ Equivalently, $f$ is differentiable in $x_0\Leftrightarrow \exists$ linear map $A\in L(\RR)$ s.t. $\lim_{x\to x_0}\frac{f(x)-f(x_0)-A(x-x_0)}{\abs{x-x_0}}=0$.
+\end{rem}
+So how can we generalize this to several dimensions?
+\begin{rem}
+ From now on we will mostly consider functions on ope sets, thus all points in the domain will be open. 
+\end{rem}
+
+\begin{defn}
+ Let $f:\Set{U}\to\RR^n, \Set{U}\subset\RR^m$ open, be a map and let $x_0\in u$. The map $f$ is called (totally) differentiable in $x_0$ iff $\exists A\in L(\RR^n,\RR^m)$, so that $$\lim_{x\to x_0}\frac{f(x)-f(x_0)-A(x-x_0)}{\Norm{x-x_0}}=0,$$ or $$\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)-A(x_0)h}{h}=0.$$ 
+ The linear approximation $A$ of $f$ is called the total differential of $f$ in $x_0$ and is denoted by $D_x f$ or $D f(x_0)$ or $\dd f(x_0)$ of $f'(x_0)$. 
+\end{defn}
+\begin{lem}[Uniqueness]
+ If $A_1, A_2\in L(\RR^n,\RR^m)$ both sotisfy the above condition, then $A_1=A_2$.
+\end{lem}
+\begin{proof}
+ Before applying the definition of differentiability twice, we observe:
+ \begin{align*}
+  &\Norm{(A_1-A_2)h}\\=&\Norm{A_1h-A_2h}\\=&\Norm{f(x_0+h)-f(x_0)-A_2h-(f(x_0+h)-f(x_0)-A_1 h)}\\\leq&\Norm{f(x_0+h)-f(x_0)-A_2h}+\Norm{f(x_0+h)-f(x_0)-A_1h}
+ \end{align*}
+ Now divide by $\Norm{h}$ (assuming $h\in\RR^n\setminus\{0\}$):
+ $$0\leq\frac{\Norm{(A_1-A_2)h}}{\Norm{h}}\leq\frac{\Norm{f(x_0+h)-f(x_0)-A_1h}}{h}+\frac{\Norm{f(x_0+h)-f(x_0)-\delta h}}{h}.$$ Thus, $\lim_{h\to 0}\frac{\Norm{(A_1-A_2)h}}{\Norm{h}}=0$.
+ 
+ Consider some (fixed but arbitrary) $h\in\RR^n$ and look the $th, \forall t\in\RR$. The limit being 0 means in particular that $\lim_{t\to 0}\frac{\Norm{A_1-A_2}(t h)}{th}=0$. By linearity of $A_1, A_2$:
+ $\frac{\Norm{t(A_1-A_2)h}}{th}=\frac{\Norm{(A_1-A_2)h}}{\Norm{h}}$. But doesn't depend on $t$ anymore. $\forall h\in\RR^n\setminus\{0\}\Rightarrow\frac{\Norm{(A_1-A_2)h}}{\Norm{h}}=0$ and $\Norm{(A_1-A_2)h}=0$. It follows that $A_1=A_2$.
+\end{proof}
+\begin{rem}
+ In the definition of differentiability one can also write $\lim_{x\to x_0} \linebreak[4]\frac{\Norm{f(x)-f(x_0)-A(x-x_0)}}{\Norm{x-x_0}}=0$.
+\end{rem}
+\begin{rem}
+ $\lim_{x\to x_0}\Norm{g(x)}=c\neq 0\nRightarrow \exists\lim_{x\to x_0}g(x)$.
+\end{rem}
+\begin{countEx}
+ $h(x):=\begin{cases}1,\qquad x\in(0,\frac{1}{2})\\0,\qquad x\in[\frac{1}{2},1]\end{cases}$. Define $g:[0,1]\to\RR^2$ by $g(x):=\left(\begin{matrix}c\cos(x)\\c\sin(x)\end{matrix}\right)$, and $\Norm{g}$ at $x=\frac{1}{2}$: $\lim_{x\to\frac{1}{2}}\Norm{g(x)}=0$, but $\exists \lim_{x\to\frac{1}{2}}g(x)$.
+\end{countEx}
+\begin{exam}
+ \begin{itemize}
+  \item The differential of $A\in L(\RR^n,\RR^m)$ in any point is $A$ itself.
+  \item Affine maps: Consider any affine map $\RR^n\to\RR^m, x\to A x+b, \forall b\in\RR^m, A\in L(\RR^n, \RR^m)$. Here the differential is $A$ again. 
+ \end{itemize}
+\end{exam}
+\begin{prop}
+ $f:\Set{U}\to\RR^m$ is differentiable in $x_0\in\Set{U}\Leftrightarrow \exists \phi:\Set{U}\to\RR^m.\:\exists A\in L(\RR^n, \RR^m)$ s.t. $f(x)=f(x_0)+A(x-x_0)+\phi(x-x_0)$, where $\lim_{x\to x_0}\frac{\phi(x-x_0}{\Norm{x-x_0}}=0$. 
+\end{prop}

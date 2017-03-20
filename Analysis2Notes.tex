@@ -1,0 +1,60 @@
+\documentclass[a4paper,10pt]{report}
+% !TeX spellcheck = en_US
+% !TeX encoding = utf8
+% !TeX program = pdflatex
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+%opening
+\title{Analysis II -- Lecture Notes}
+\author{Colin Rothgang}
+\input{tools/math_commands}
+\newcommand{\lbb}{\left[(}
+\newcommand{\rbb}{)\right]}
+\newcommand{\nm}{\lbb n, m\rbb}
+\newcommand{\kl}{\lbb k, l\rbb}
+\newcommand{\Ap}{A proof can be found in the Appendix.}
+\renewcommand{\part}{\Set{P}}
+\newcommand{\lowSum}{\Set{L}}
+\newcommand{\upSum}{\Set{U}}
+\newcommand{\uint}[2]{\overline{\int_{#1}^{#2}}}
+\newcommand{\lint}[2]{\underline{\int_{#1}^{#2}}}
+\usepackage{fancyhdr}
+%\usepackage{multirow}
+\usepackage{xcolor}
+\fancypagestyle{main}{
+	\lhead{}
+	\chead{\nouppercase{\firstmark}}
+	\rhead{}
+	\lfoot{Elements of Analysis 2016}
+	\rfoot{Colin Rothgang}
+	\cfoot{Page \thepage{} of \pageref{theEnd}}
+}
+\pagestyle{main}
+%\bibliography{./reference_list.bib}
+
+\newcommand{\next}{\inputNextLecture{Notes/Analysis2Notes}}
+
+\makeatletter
+\renewcommand\thesection{}
+\renewcommand\thesubsection{}
+\makeatother
+
+\usepackage[pdftitle="Analysis Lecture Notes 2016
+", pdfauthor={Colin Rothgang},hidelinks]{hyperref}
+%\hypersetup{colorlinks=false}
+%\urlstyle{same}
+\begin{document}
+ \maketitle
+ \tableofcontents
+ \chapter[Differentiation]{Differentiation in several variables}
+ \next
+ \next
+ \next
+ \next
+ \next
+  
+  \phantomsection
+  \label{theEnd}
+\end{document}	

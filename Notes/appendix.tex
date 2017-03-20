@@ -1,0 +1,146 @@
+\section{Appendix}
+\addtocounter{lecture}{-\value{lecture}+1}
+\begin{lem}
+	Every natural number has exactly one successor. 
+\end{lem}
+\begin{proof}
+	Let $\mathcal{M}$ be the a subset of $\NN$ containing exactly the following elements:
+	\begin{itemize}
+		\item A number called 0.
+		\item Exactly one successor $\text{succ}(n)$ of any number $n$ in $\mathcal{M}$
+	\end{itemize}
+	Now by Peano-Axiom 5 we yield $\mathcal{M}\equiv \NN$. Therefore, any natural number $n$ has exactly one successor denoted by $\succ(n)$. 
+\end{proof}
+\begin{lem}
+	The operation of addition is well defined.
+\end{lem}
+\begin{proof}[Proof by induction]
+	Let once again $\mathcal{M}\subseteq\NN:=\{m\in\NN|\forall n\in \NN.n+m\text{ is well defined}\}$ denote the subset of all natural numbers, where the addition of any $m\in\mathcal{M}$ to any given natural number $n$ is well defined.  
+	\subsubsection*{Base case}
+	By definition the addition of zero is well defined, so $0\in \mathcal{M}$. 
+	\subsubsection*{Inductive step $m\to \succ(m)$}
+	Assume the addition of $m$ to any arbitrary natural number $n$ is well defined and yields the sum $o:=n+m\in \NN$.
+	Now $n+\succ(m)=\succ(n+m)=\succ(o)$. As the successor of any natural number is a natural number as well, we know that $\succ(o)\in \NN$, so the addition of $m+1$ is well defined too and $m+1\in\mathcal{M}$. Now according to the principle of induction it follows that $\NN\equiv \mathcal{M}$, therefore the addition of natural numbers is well defined. 
+\end{proof}
+\begin{lem}
+	\[\forall n\in\NN.\succ(n)=n+1\]
+\end{lem}
+\begin{proof}
+	By definition of addition:
+	\[n+1=n+\succ(0)=\succ(n+0)=\succ(n)\]
+\end{proof}
+\begin{lem}
+	\label{lem:assoAdd}
+	\[\forall n, m, t\in\NN.(n+m)+t=m+(n+t)\]
+\end{lem}
+\begin{proof}
+	Let $\mathcal{M}$ denote the subset of $\NN$ of all $t$ satisfying the statement for any arbitrary $n, m$. 
+	By definition of addition $0\in \mathcal{M}$.
+	Now assume $t\in\mathcal{M}$. Then 
+	\begin{align*}
+	&(n+m)+t+1\\
+	=&(n+m)+\succ(t) &\text{ as proven above}\\
+	=&\succ(n+m+t) &\text{by definition of addition}\\
+	=&n+\succ(m+t) &\text{by definition of addition}\\
+	=&n+(m+\succ(t)) &\text{by definition of addition}\\
+	=&n+(m+t+1) &\text{ as proven above}
+	\end{align*}
+	Now by principle of induction it follows that $\mathcal{M}=\NN$. 
+\end{proof}
+\begin{lem}[Commutation law of the successor of natural numbers]
+	\label{lem:commSucc}
+	\[\forall n, m\in \NN.n+\succ(m)=\succ(n)+m \]
+\end{lem}
+\begin{proof}
+	By definition we see that $n+\succ(m)=\succ(n+m)$. 
+	Let $\mathcal{M}:=\{m\in\NN|\forall n\in\NN.\succ(n)+m=\succ(n+m)\}$. \\
+	By definition $0\in\mathcal{M}$. Now assume $m \in \mathcal{M}$. So we know that $\succ(n)+m=\succ(n+m)$. We yield:
+	\begin{align*}
+	\succ(n)+\succ(m)=\succ(\succ(n)+m)=\succ(n+\succ(m)).
+	\end{align*}
+	Thereby we yield that the successor of $m$ is element of $\mathcal{M}$ as well. 
+	Then \[\succ(n)\in\mathcal{M}\] and by principle of induction $\NN\equiv \mathcal{M}$.
+\end{proof}
+\begin{lem}[Commutation law for addition of natural numbers]
+	\label{lem:comAdd}
+	\[\forall n, m\in\NN.n+m=m+n\]
+\end{lem}
+\begin{proof}
+	Let $\mathcal{M}:=\{n\in\NN|\forall m\in\NN.n+m=m+n\}$.
+	By definition $0\in\mathcal{M}$. Assume $n\in\mathcal{M}$ so $\forall m\in\NN n+m=m+n$.
+	Now according to lemma \ref{lem:commSucc} we yield 
+	\begin{align*}
+	\succ(n)+m=n+\succ(m)=\succ(n+m)=m+\succ(n)=\succ(m)+n.
+	\end{align*}
+	Therefore, by principle of induction we yield $\mathcal{M}\equiv\NN$. 
+\end{proof}
+\begin{lem}
+	The operation of multiplication is well defined.
+\end{lem}
+\begin{proof}
+	Let $\mathcal{M}$ denote the subset of natural numbers for which multiplication  of any natural number by them is well defined. 
+	By definition 0 is member of $\mathcal{M}$. Assume $m\in \mathcal{M}$, so the multiplication of any arbitrary number $n$ by $m$ is well defined and leads to the natural number $o:=n\cdot m$. Then \[n\cdot \succ(m)=n+n\cdot m=n+o.\]
+	As addition is well defined over the set of natural numbers, this is a natural number as well. Now by the principle of induction $\mathcal{M}\equiv \NN$. 
+\end{proof}
+\begin{lem}[Distribution law for addition and multiplication of natural numbers]
+	\label{lem:dist}
+	\[(n+m)\cdot t=(m\cdot t)+(n\cdot t)\]
+\end{lem}
+\begin{proof} 
+	Let $\mathcal{M}:=\{t\in\NN|\forall n, m\in\NN.(n+m)\cdot t=(n\cdot t)+(m\cdot t)\}$.\\
+	By definition $0\in\mathcal{M}$. Now assume $t\in\mathcal{M}$. \\
+	Then
+	\begin{align*}
+	&(n+m)\cdot \succ(t)\\
+	=&(n+m)\cdot t+(n+m) &\text{by definition of multiplication}\\
+	=&(n\cdot t)+(m\cdot t)+(m+n) &\text{by assumption}\\
+	=&((n\cdot t)+n)+((m\cdot t)+m) &\text{by commutation law (lemma \ref{lem:comAdd})}\\
+	=&(n\cdot \succ(t))+(m\cdot \succ(t)) &\text{by definition of multiplication}
+	\end{align*}
+	and thus $t\in\mathcal{M}\Rightarrow \succ(t)\in\mathcal{M}$.
+	Therefore, by principle of induction we yield $\mathcal{M}\equiv\NN$.
+\end{proof}
+\begin{lem}[Commutation law for multiplication of natural numbers]
+	\label{lem:commNat}
+	\[\forall n, m\in\NN. n\cdot m=m\cdot n\]
+\end{lem}
+\begin{proof}
+	Let $\mathcal{M}:=\{n\in\NN|\forall m\in\NN.n\cdot m=m\cdot n\}$.
+	By definition $0\in\mathcal{M}$. \\
+	Now assume $n\in\mathcal{M}$. \\
+	Then \[n\cdot \succ(m)=n+n\cdot m=n\cdot m+n=\succ(m)\cdot n\]
+	and thus $m\in\mathcal{M}\Rightarrow \succ(m)\in\mathcal{M}$.
+	Therefore, by principle of induction we yield $\mathcal{M}\equiv\NN$.
+\end{proof}
+\begin{lem}
+	The neutral element of an abelian group is unique.
+\end{lem}
+\begin{proof}
+	Let $(\set{S,+})$ be an abelian group with neutral element $0$. Let $x^{-1}$ denote the neutral element of an element $x$ of the group. Now suppose that $e$ is neutral element of  $\set{S},+)$ as well. If follows:
+	\begin{align*}
+	\forall x\in\set{S}.e+x=x=x+0\\
+	\Rightarrow e+x=x+0\\
+	\Leftrightarrow e+x+x^{-1}=x+0+x^{-1}\\
+	\follows{0is neutral element} e+0=x+(0+x^{-1})\\
+	\follows{0 is neutral element and commutivity} e=x+(x^{-1}+0)\\
+	\follows{associativity} e=(x+x^{-1})+0\\
+	\follows{$x$ and $x^{-1}$ are inverse and 0 is neutral element} e=0+0\\
+	\follows{0is neutral element} e=0
+	\end{align*}
+	Hence, the neutral element is unique.
+\end{proof}
+\begin{thm}
+	Every real number $x\in\RR$ can be written as $b.b_1b_2b_3\ldots b_n\ldots$ where $b\in\ZZ$ and $b_n$ is a sequence on $\{1,2,3,4,5,6,7,8,9\}$. 
+\end{thm}
+\begin{proof}[Idea of a proof]
+	Fix $x\in\RR$. Using the archimedean property $\exists n\in\ZZ.n\leq x<n+1.n:=E(x):=\lfloor x\rfloor$.
+	Set $|b|=|E(x)|, \sgn(b)=\sgn(x)$ and define $b_i, x_i$ recursively by $.x_1:=10(x-E(x)), b_1:=E(x_1)$ and $x_{i+1}:=10(x-b_i), b_{i+1}:=E(x_{i+1})$.
+	%Since $\forall n\in\NN.s_n<x\Rightarrow \lim_{n\to\infty}s_n\leq x$. So it is sufficient to prove that $\lim_{n\to\infty} s_n\geq x$.
+	Now we claim that $|s_n-x|<10^{-n}$. \begin{proof}[Proof by induction]
+		\subsubsection*{Base case; $n=1$}
+		Now by definition $x_1\in\left[b_1,b_1+1\right[\land x-b=x_1\Rightarrow |x-s_1|<s_1$.
+		\subsubsection*{Inductive step; $n\to n+1$}
+		According to the induction hypothesis $|s_n-x|<10^{-n}\Rightarrow x_{n+1}\in\left[0,b_{n+1}\right[\Rightarrow |x-s_{n+1}|<10^{-n-1}$.
+	\end{proof}
+	Now define $d_n:=|x-s_n|$ and $u_n:=10^{-n}$. Since $\lim_{n\to\infty}u_n=0 \land d_n<u_n\forall n\in\NN$ we can apply the sandwich theorem and yield $\lim_{n\to\infty}d_n=0$ and thus $\lim_{n\to\infty} s_n=x$.
+\end{proof}

@@ -1,0 +1,47 @@
+\begin{defn}
+ Let $f:\Set{U}\subseteq\RR^n\to\RR^n$ and assume let $a\in\RR^n$ be an accumulation point. Now if $a\in\Set{U}$ and if $\exists\lim_{n\to\infty}f(x)=f(a)$, then we say that $f$ is continuous at $a$. 
+ If all points in $\Set{U}$ are accumulation points for $\Set{U}$ and $f$ is continuous in every point of $\Set{U}$, then we call $f$ continuous on $\Set{U}$. 
+\end{defn}
+\begin{exam}
+ \begin{enumerate}
+  \item $f:\RR^2\to\RR, f(x,y):=\begin{cases}\frac{xy}{x^2+y^2}\qquad(x,y)\neq 0\\0\qquad(x,y)=0\end{cases}$. We have seen that $\nexists\lim_{(x,y)\to(0,0)}f(x,y)$, hence $f$ is not continuous in $0$. 
+  How about the other points in the domain?
+  $$\lim_{(x,y)\to(x_0,y_0)}f(x,y)\Leftrightarrow\forall\overset{x_n\to x_0}{y_n\to y_0}.\exists\lim_{n\to\infty}f(x_n,y_n)$$
+  By the usual properties of sequences of reals and their limits, we obtain:
+  $$\begin{matrix}x_n\overset{n\to\infty}{\longrightarrow}x_0\neq 0\\y_n\overset{n\to\infty}{\longrightarrow}y_0\neq 0\end{matrix}\Rightarrow\frac{x_ny_n}{x_n^2+y_n^2}\overset{n\to\infty}{\longrightarrow}\frac{x_0y_0}{x_0^2+y_0^2},$$
+	  hence $f$ is continuous on $\RR^2\setminus\{(0,0)\}$, since $\lim_{(x,y)\to(x_0,y_0)}f(x,y)=\lim_{(x,y)\to(x_0,y_0)}\frac{xy}{x^2+y^2}=\frac{x_0y_0}{x_0^2+y_0^2}=f(x_0,y_0)$
+  \item $f:\RR^2\to\RR, f(x,y):=\begin{cases}\frac{x^4+2x^2y^2}{x^2+y^2}\qquad(x,y)\neq 0\\0\qquad(x,y)=0\end{cases}$. As before, we can conclude that $g$ is continuous on $\RR^2\setminus\{0\}$. Furthermore, we have $$g(x,y)=\frac{x^2+2y^2}{x^2+y^2}x^2\leq \frac{x^4+2x^2y^2+x^2}{x^2+x^2}=x^2+y^2=\Norm{(x,y)}^2\overset{(x,y)\to(x_0,y_0)}{\longrightarrow}0.$$
+  Thus $g$ is continuous on its domain.
+ \end{enumerate}
+\end{exam}
+\begin{thm}
+ Let $f,g:\Set{U}\subseteq\RR^n\to\RR^m$ and $a$ be an accumulation point for $\Set{U}$. Then assuming that the limits on the right-hand-side exist, we obtain the following identities:
+ \begin{enumerate}
+  \item[(i)] $$\lim_{x\to a}f(x)+g(x)=\lim_{x\to a}f(x)+lim_{x\to a}g(x)$$
+  \item[(ii)] $$lim_{x\to a}\inPro{f(x)}{g(x)}=\inPro{\lim_{x\to a}f(x)}{\lim_{x\to a}g(x)}$$
+  \item[(iii)] $$\lim_{x\to a}f(x)g(x)=\left(\lim_{x\to a}f(x)\right)\left(\lim_{x\to a}g(x)\right)$$
+  If $g(x)\neq 0,\,\forall x\in\Set{U}$ and if $\exists \lim_{x\to a}g(x)$, then we further have:
+  $$\lim_{x\to a}\frac{f(x)}{g(x)}=\frac{\lim_{x\to a}f(x)}{\lim_{x\to a}g(x)}$$
+  \item If we write $f:\Set{U}\subseteq\RR^n\to\RR^m$ with $f=(f_1,f_2,f_3\ldots,f_n)$ with $f_j:\Set{U}\to\RR\ \forall j\in\{1,2,\ldots,n\}$ then $$\exists\lim_{x\to a}f(x)=L\in \RR^m=(L_1,L_2,\ldots,L_n)\Leftrightarrow \forall j\in\{1,2,\ldots,m\}.\,\exists\lim_{x\to a}f_j(x)=L_j$$
+ \end{enumerate}
+\end{thm}
+\begin{proof}
+ (i), (iii) follow from the definitions, from lemma \ref{lem:comp} and the additivity of limits on $\RR$.
+ (iv) follows from: $$\Norm{f(x)-L}\leq \abs{f_j(x)-L_j}\qquad\forall j\in\upto{n}.$$
+ (iii) follows from (i), (iii) and (iv).
+\end{proof}
+\begin{rem}
+ The analogous rules also hold for continuity i.e. sums, products, inner product, components of continuous functions are also continuous. Furthermore, sum, inner product, product with scalar are continuous themselves.
+\end{rem}
+\begin{defn}[Cauchy Sequence]
+	Let $(\Set{X},\dis)$ be a metric space and let $a_n$ in $\Set{X}$.Now $a_n$ is called Cauchy (or a Cauchy sequence) iff $\forall \epsilon>0.\ \exists N\in\NN.\forall n,m\geq N.\dist{a_n}{a_m})<\epsilon$.
+\end{defn}
+\begin{defn}[A complete metric space]
+	A metric space $(\Set{X},\dis)$ is called complete iff every Cauchy sequence in the space is convergent.
+\end{defn}
+\begin{thm}
+ $(\RR^n,\Norm{\cdot})$ is Banach.
+\end{thm}
+\begin{proof}
+ Let $(x_k)$ be a Cauchy sequence. Then $\exists N_\epsilon\in\NN.\Norm{x_k-x_l}<\epsilon, \:\forall k,l \geq N_\epsilon\Rightarrow (x_{k_i})$ Cauchy $\forall i\in\upto{n}$. Then $x_{k_i}$ converges to some $x_i\in\RR\:\forall i\in\upto{n}$. Now put $x:=(\fseq{x}{n})$ and apply lemma \ref{lem:comp}. It follows $x_k\to x$. Therefore, $\RR^n, \Norm{\cdot})$ is Banach.
+\end{proof}

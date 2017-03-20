@@ -1,0 +1,99 @@
+\section{Motivation}
+It's important to study the way functions in several variables change (leading to the notions of continuity and differentiability). 
+\begin{exam}\ 
+ \begin{itemize}
+  \item Newton's gravitational law $F=G\frac{Mm}{r^2}$
+  \item Lagrange energy field $L(q_1, q_2,\ldots, q_n, \dot{g_1}, \dot{g_2}, \ldots, \dot{g_n})$, where $G_i=g_i(t), \forall i\in\{1, \ldots, n\}$ are positive variables and $\dot{q_1}, \dot{q_2}, \ldots, \dot{g_n}$ are the temporal derivatives of the position. Now we can write equations like $L=K-V$, where $K$ denotes the kinetic energy and $V$ the potential energy. 
+ \end{itemize}
+\end{exam}
+\paragraph{Base idea}
+Understand differentiation as linearisation. In one dimension this corresponds to finding the tangent line to the graph of a function. In two dimensions we can look either for tangent lines or a tangent plane. 
+\section{Norms, Netrics and Banach and Hilbert spaces}
+\begin{defn}
+ Let $\Set{X}$ be a set. Now $\circ:\RR^n\to\RR^{\geq 0}$ is called a norm iff:
+ \begin{enumerate}
+  \item $\Norm{x}=0\Leftrightarrow x=0$.
+  \item $\Norm{\lambda x}=\abs{\lambda}\Norm{x}, \,\forall \lambda\in\RR$
+  \item $\Norm{x+y}\leq\Norm{x}+\Norm{y}, \,\forall x,y\in\Set{X}$
+ \end{enumerate}
+\end{defn}
+\begin{defn}
+ On $\RR^n$ we define the $p$-norm $\Norm{\cdot}_p:\RR^n\to\RR{\geq 0}$ by:
+ $$\forall p\in\NN,\, \forall x\in\RR^n.\ \Norm{x}_p:=\Norm{(x_1, x_2\ldots, x_n)}_p:=\left(\abs{\sum_{i=1}^{n}\abs{x_i}^p}\right)^{\frac{1}{p}}.$$
+\end{defn}
+For $p=1$ we call the norm the Manhatten norm, for $p=2$ we call the norm the Euclidean norm, which is defined by the inner product $\inPro{\cdot}{\cdot}:\RR^n\times \RR^n\to\RR, \inPro{x}{y}:=\sum_{i}x_iy_i$ in the sense that $$\Norm{x}_2:=\left(\abs{\inPro{x}{y}}\right)^\frac{1}{2}$$
+\begin{exc}
+ The $p$-norm is a norm on $\RR^n$. 
+\end{exc}
+\begin{defn}
+ A vector space equipped with a norm is called normed vector space.
+\end{defn}
+\begin{defn}
+ A complete normed vector space is called Banach space.
+\end{defn}
+\begin{defn}
+ A Banach space with a norm defined by an inner product is called a Hilbert space. 
+\end{defn}
+
+\begin{defn}
+ Let $x$ be a set, $\dis:\Set{X}\times\Set{X}\to\RR{\geq 0}$ with 
+ \begin{enumerate}
+  \item $\dist{x}{y}=0\Leftrightarrow x=y$
+  \item $\dist{x}{y}=\dist{y}{x}\qquad\forall x,y\in\Set{X}$
+  \item $\dist{x}{z}\leq \dist{x}{y}+\dist{y}{z}$
+ \end{enumerate}, then $\dis$ is called a metrix on $\Set{X}$ and $(\Set{X}, \dis)$ is called a metric space. 
+\end{defn}
+\begin{exc}
+ If $\Set{X}$ is a normed vector space, then $\dist{x}{y}:=\Norm{x-y}$ is a metric. 
+ In particular all $p$-norms on $\RR^2$ are equivalent i.e.
+ $$\exists C\in\RR,\,C=C(x,p,q)\geq 1:\ \frac{1}{c}\leq\frac{\Norm{x}_p}{\Norm{x}_q}\leq C, \qquad\forall x\in\RR^n.$$
+ This implies that all these norms define the same topology on $\RR^n$. 
+\end{exc}
+\begin{rem}
+ Given a metric space $(\Set{X}, \dis)$, sets of the form $\Ball{x}{R}:=\{y\in\Set{X}.\dist{x}{y}<R\}, \qquad\forall x\in\Set{X}, R\geq 0$, are called open balls centered at $x$ with radius $R$ in $\Set{X}$. In $\RR^n$ we define the topology by saying that a set $\Set{O}\subset\RR^n$ is open iff $\forall x\in\Set{O}, \exists R=R(x)>0. \,\Ball{x}{R}\subset\Set{O}$.
+\end{rem}
+\begin{defn}
+ A sequence $(x_k)_{k\in\NN}$ in $\RR^n$ converges to $\Set{X}\in\RR^n$ iff $\Norm{x_k-x}\overset{k\to\infty}{\longrightarrow}0$, or equivalently if $\forall \epsilon>0.\,\exists N\in\NN, \,\forall n\geq N\in\NN.\ \Norm{x_n-x}<\epsilon$ or equivalently $\forall x\in\RR^n,\,\forall \Set{O}\in\Set{T}_{\RR}\|x\in\Set{O}.\,\exists N\in\NN.\,\forall n\geq N\in\NN.\ x_n\in\Set{O}$. If the limit exists we write $\lim_{k\to\infty}x_k$.
+\end{defn}
+\begin{lem}
+ \label{lem:comp}
+ Let $x=:(x_1, x_2,\ldots,x_n)\in\RR^n, (x_k)_{k\in\NN}=(x_{k_1},x_{k_2}, x_{k_n}), k\in\NN$.
+ Now we have $$\lim_{n\to\infty}x_k=x\Leftrightarrow \forall j\in \{1,2,\ldots,n\}.\ \lim_{n\to\infty}x_{n_j}=x_j.$$
+\end{lem}
+\begin{proof}
+ ``$\Rightarrow$'': We easily observe $$\forall x\in\RR^n, \forall i\in\{1, 2, \ldots,n\}. \Norm{x}=\sqrt{x_1^2+\ldots+x_n^2}\geq \sqrt{x_i ^2}=\abs{x_i}$$
+ Fix $\epsilon>0$, for any $i\in\{1, 2, \ldots, n\}$ we have $\epsilon_i':=\frac{\epsilon}{\sqrt{n}},\,\exists\abs{x{k_i}-x_i}<\epsilon'=\frac{\epsilon}{\sqrt{n}}.\qquad\forall k\geq N_{\epsilon}^i$. Now take $N_\epsilon:=\max\{N_{\epsilon}^1, N_{\epsilon}^2, \ldots, N_{\epsilon}^n\}$, then $$\Norm{x_k-x}=\left(\sum_i(x_{k_i-x_i})^2\right)^{\frac{1}{2}}<\sqrt{\sum_i \epsilon'^2}=\epsilon\qquad\forall k\geq N_\epsilon.$$
+\end{proof}
+
+\begin{exam}
+ $x_k:=(\frac{1}{k},\frac{1}{k})_{k\in\NN}\Rightarrow \lim_{k\to\infty}x_k=(0,0)=0$
+ We can use this sequence, by applying sandwich theorem, on the components sequences of a sequence of vectors.
+\end{exam}
+\begin{defn} Let $\Set{X}$ be any set. Now a point $a\in\Set{X}$ is called an accumulation point of $\Set{X}$ iff $\forall \epsilon'>0:\,(\Ball{a}{\epsilon'}\setminus\{a\})\cap \Set{U}\neq \emptyset$. 
+\end{defn}
+\begin{defn}
+ Let $f:\Set{U}\to\RR^n, \Set{U}\subset\RR^n$, let $a$ be an accumulation point for $\Set{U}$. If $\exists L\in\RR,\,\forall\epsilon>0.\,\exists\delta>0.\ \Norm{f(x)-L}<\epsilon\qquad\forall x\in \Set{U}\cap(\Ball{a}{\delta}\setminus\{a\})$, then $L$ is the limit of $f$ at $a$, denoted by $L=\lim_{x\to a}f(x)$. 
+\end{defn}
+\begin{rem}
+ One could also write (equivalent definition): $\forall \epsilon>0,\,\exists\delta>0.\ x\neq a\Rightarrow\Norm{x-a}<\delta\ \Rightarrow\Norm{f(x)-L}<\epsilon$.
+\end{rem}
+\begin{lem}[Anouther equivalent definition]
+ Given a function $f:\Set{U}\to\RR^n$ with $\Set{U}\subset\RR^n$ and given an accumulation point $a$ for $\Set{U}$, we have $$\exists\lim_{x\to a}f(x)=L\in\RR^n\Leftrightarrow\forall(x_k)\in\Set{U}\|\lim_{k\to\infty}x_k=a\Rightarrow \lim_{k\to\infty}f(x_k)=L.$$
+\end{lem}
+\begin{exam}\ 
+ \begin{itemize}
+  \item $f:\RR^2\to\RR, f(x,y):=\begin{cases}\frac{xy}{x^2+y^2}\qquad(x,y)\neq(0,0)\\0\qquad(x,y)=(0,0)\end{cases}$
+  \begin{itemize}
+   \item Approach $(0,0)$ along the $x$-axis: $\longrightarrow f(x_k,y_k)=f(\frac{1}{k},0)=\frac{\frac{1}{k}\cdot 0}{\frac{1}{k^2}+0^2}=0\overset{k\to\infty}{\longrightarrow}0$.
+   \item Approach $(0,0)$ along the $y$-axis: $\longrightarrow f(x_k,y_k)=f(0,\frac{1}{k})=\frac{0\cdot\frac{1}{k}}{0^2+\frac{1}{k^2}}=0\overset{k\to\infty}{\longrightarrow}0$.
+   \item Approach $(0,0)$ along the main diagonal: $\longrightarrow f(x_k,y_k)=f(\frac{1}{k},\frac{1}{k})=\frac{\frac{1}{k^2}}{\frac{1}{k^2}+\frac{1}{k^2}}=\frac{1}{2}\overset{k\to\infty}{\longrightarrow}\frac{1}{2}$.
+  \end{itemize}
+  Hence, $f$ is not continuous at $0$.
+  \item $g:\RR^n\to\RR, \,g(x,y):=\begin{cases}\frac{xy^3}{x^4+y^4}\qquad(x,y)\neq(0,0)\\0\qquad(x,y)=(0,0)\end{cases}$
+  \begin{itemize}
+   \item Take $y_k:=cx_k$ and yield. $$g(x_k, y_k)=\frac{x_kcx_k^3}{x_k^4+c^4x_k^4}=\frac{c^3}{1+c^4}\Rightarrow \nexists \text{limit}.$$
+  \end{itemize}
+  \item $h:\RR^n\to\RR, \,h(x,y):=\begin{cases}\frac{x^2}{x+y}\qquad(x,y)\neq(0,0)\\0\qquad(x,y)=(0,0)\end{cases}$.\\
+  As it turns out this does not converge either.
+ \end{itemize}
+\end{exam}

@@ -1,0 +1,31 @@
+\begin{prop}
+  If any function $f:\Set{U}\subset\RR^n\to\RR^m$, for $\Set{U}$ open is differentiable in $x_0\in\Set{U}$, it is also continuous in $x_0$. 
+\end{prop}
+\begin{proof}
+  By differentiability in $x_0$, $\exists D$ s.t. $$f(x)=f(x_0)+Df(x_0)(x-x_0)+\phi(x-x_0)$$ with $lim_{x\to x_0}\frac{\phi(x-x_0)}{\Norm{x-x_0}}$. Thus $\lim_{x\to x_0}\phi(x-x_0)=0$, so $\lim_{x\to x_0}f(x)=f(x_0)+Df(x_0)(x-x_0)=f(x_0)$.
+\end{proof}
+
+
+\begin{prop}[linearity]
+  Let $f, g:\Set{U}\to \RR^m$ differentiable in $x_0\in \Set{U}, \alpha, \beta\in\RR$, $\Set{U}\subset\RR^n$ open, then $\alpha f+\beta g:\Set{U}\to\RR^m$ is differentiable in $x_0$ and $D(\alpha f(x_0)+\beta g(x_0)=\alpha Df(x_0)+\beta D g(x_0)$.
+\end{prop}
+\begin{proof}
+  Plugging in the definition of differentiability, we yield:
+  \begin{align*}
+  	&\lim_{x\to x_0}f(\alpha x+\beta x)\\
+  	=&\lim_{x\to x_0}f(\alpha x_0+\beta x_0)+Df(\alpha x+\beta x-\alpha x_0-\beta x_0)+\phi(\alpha x+\beta x-\alpha x_0-\beta x_0)\\\overset{\phi\to 0}{=}&\lim_{x\to x_0}f(\alpha x_0+\beta x_0)+Df(\alpha x+\beta x-\alpha x_0-\beta x_0)\\&\text{By definition of differentiability $Df$ is linear:}\\
+  	\Rightarrow& Df(\alpha x+\beta x-\alpha x_0-\beta x_0)=\alpha Df(x_0)+\beta D g(x_0)
+  \end{align*}
+\end{proof}
+
+
+\begin{thm}[chain rule]
+  Let $f:\Set{U}\to\RR^m, \Set{U}\in\RR^n$ open be differentiable in $x_0\in \Set{U}$ and $g:\Set{V}\to RR^p$, for $\Set{V}\in \RR^n$ open with $y_0:=f(x_0)\in \Set{V}$. Then $g\circ f: \Set{U}\to \RR^n$ is differentiable in $x_0$ and $D(g\circ f)(x_0)=Dg(f(x_0))\circ Df(x_0)$.
+\end{thm}
+\begin{proof}
+  From differentiable of $f$ in $x_0$ and $g$ in $y_0$, we obtain: 
+  \begin{equation}
+  	\label{eqn:1}
+  	f(x)=f(x_0)+D
+  \end{equation}
+\end{proof}
