@@ -7,7 +7,7 @@
 \end{defn}
 \subsection*{Facts:}
 \begin{enumerate}
- \item $A0=0\qquad\forall A\in L(\Set{X}, \Set{Y})$. 
+ \item $A\:0=0\qquad\forall A\in L(\Set{X}, \Set{Y})$. 
  \item If $\Set{X}$ is finite dimensional (e.g. $\RR^n$), then $A\in L(\Set{X})$ bijective $\Leftrightarrow A$ injective $\Leftrightarrow$ A surjective.
  \begin{proof}[Proof Sketch]
   $A$ surjective $\Leftrightarrow \card{A \Set{X}}=\card{\Set{X}}\Leftrightarrow \card{A^{-1} \Set{X}}=\card{\Set{X}}\Leftrightarrow A$ injective (by linearity). 
@@ -21,7 +21,7 @@
 \end{defn}
 \begin{defn}
  Matrix multiplication is defined by:
- Let $A\in\Set{M}^{n\x m}(\RR), B\in\Set{M}^{m\x p}(\RR)$. Then $C:= A\cdot B:=(c_{k,j})\begin{matrix}1\leq j\leq n\\1\leq k\leq p\end{matrix}$, where $c_{k,j}=\sum_{i=1}^{m}a_{i,j}b_{k,i}\in\Set{M}^{n\x p}(\RR)$. Furthermore, $A\in\Set{M}^{m\x n}(\RR)$ is called invertible iff $\exists A^{-1}\in\Set{M}^{n\x m}(\RR)$. $AA^{-1}=A^{-1}A=I_n:=\left(\begin{matrix}1\ 0\ 0\ \ldots 0\\0\ 1\ 0\ 0\ldots\\\vdots\\0\ 0\ \ldots 0\ 1\end{matrix}\right)$ ($\Rightarrow m=n$), where $I_n$ is the identity matrix.
+ Let $A\in\RLinSpaNM{n}{m}, B\in\RLinSpaNM{m}{p}$. Then $C:= A\cdot B:=(c_{k,j})\begin{matrix}1\leq j\leq n\\1\leq k\leq p\end{matrix}$, where $c_{k,j}=\sum_{i=1}^{m}a_{i,j}b_{k,i}\in\RLinSpaNM{n}{p}$. Furthermore, $A\in\RLinSpaNM{m}{n}$ is called invertible iff $\exists A^{-1}\in\RLinSpaNM{n}{m}$. $AA^{-1}=A^{-1}A=I_n:=\left(\begin{matrix}1\ 0\ 0\ \ldots 0\\0\ 1\ 0\ 0\ldots\\\vdots\\0\ 0\ \ldots 0\ 1\end{matrix}\right)$ ($\Rightarrow m=n$), where $I_n$ is the identity matrix.
 \end{defn}
 \begin{rem}
  Matrix multiplication is not commutative (only associative, as is function composition in general).
@@ -30,7 +30,7 @@
  $\Set{M}^{m\x n}$ is a vector space over $\RR$ for all $m,n\in\NN$.
 \end{rem}
 \begin{enumerate}
- \item[4.] Let $\Set{X}, \Set{Y}$ be finite dimensional vector spaces with basis $\{\fseq{x}{n}\}, \{\fseq{y}{m}\}$. We can now use these basis to define the natural isomorphism between $\Set{M}^{m\x n}$ and $L(\Set{X},\Set{Y})$: $A_{i,j}\to \left((x_k)_{k\in\upto{n}}\to (\sum_{k=1}^{m}a_{i,k})_{i\in\upto{n}}\right)$. By linearity and item (2) we see that this mapping is an linear bijection, thus it is an isomorphism. 
+ \item[4.] Let $\Set{X}, \Set{Y}$ be finite dimensional vector spaces with basis $\{\fseq{x}{n}\}, \linebreak[4]\{\fseq{y}{m}\}$. We can now use these basis to define the natural isomorphism between $\Set{M}^{m\x n}$ and \[L(\Set{X},\Set{Y}): A_{i,j}\to \left((x_k)_{k\in\upto{n}}\to \left(\sum_{k=1}^{m}a_{i,k}\right)_{i\in\upto{n}}\right).\] By linearity and item (2) we see that this mapping is an linear bijection, thus it is an isomorphism. 
  Sometimes we will denote the matrix associated to an linear map (given a fixed basis) $A$ by $[A]$. Usually we will not distinguish between $A$ and $[A]$. 
  \item[5.] Let $A\in L(\Set{X},\Set{Y}), B\in L(\Set{X},\Set{Y})$ be linear maps, then $B\circ A\in L(\Set{X},\Set{Y})$ and $[B\circ A]=[B]\cdot[A]$.
  \item[6.] $A\in L(\Set{X})$ inveritble $\Leftrightarrow [A]$ invertible (under multiplication) $\Leftrightarrow\det(A)\neq 0$. 

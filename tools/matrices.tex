@@ -15,6 +15,8 @@
 \newcommand{\lmatrix}[1]{\begin{lematrix}#1\end{lematrix}}
 \newcommand{\matr}[1]{\begin{matrix}#1\end{matrix}}
 \newcommand{\lttmatrix}[4]{\lmatrix{#1&#2\\#3&#4}}
+\newcommand{\lrrcccmatrix}[6]{\lmatrix{#1&#2&#3\\#4&#5&#6}}
+\newcommand{\lrrrccmatrix}[6]{\lmatrix{#1&#2&\\#3&#4\\#5&#6}}
 \newcommand{\ltttmatrix}[9]{\lmatrix{#1&#2&#3\\#4&#5&#6\\#7&#8&#9}}
 \newcommand{\glttmatrix}[1]{\lttmatrix{#1_{11}}{#1_{12}}{#1_{21}}{#1_{22}}}
 \newcommand{\gltttmatrix}[1]{\ltttmatrix{#1_{11}}{#1_{12}}{#1_{13}}{#1_{21}}{#1_{22}}{#1_{23}}{#1_{31}}{#1_{32}}{#1_{33}}}
@@ -23,3 +25,6 @@
 \newcommand{\diag}{\mathrm{diag}}
 \newcommand{\Matrix}[1]{\underline{\underline{#1}}}
 \newcommand{\MatrixS}[1]{\Matrix{\Set{#1}}}
+\newcommand{\LinFunSpaNM}[2]{\Set{M}^{#1\times #2}}
+\newcommand{\RLinSpaNM}[2]{\Set{M}^{#1\times #2}(\RR)}
+\newcommand{\CLinSpaNM}[2]{\Set{M}^{#1\times #2}(\CC)}

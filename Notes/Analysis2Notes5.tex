@@ -25,7 +25,83 @@
 \begin{proof}
   From differentiable of $f$ in $x_0$ and $g$ in $y_0$, we obtain: 
   \begin{equation}
-  	\label{eqn:1}
-  	f(x)=f(x_0)+D
+  	\label{eqn:5.1}
+  	f(x)=f(x_0)+Df(x_0)(x-x_0)+\phi(x-x_0), \lim_{x\to x_0}\frac{\phi(x-x_0)}{\Norm{x-x_0}}
   \end{equation}
+  \begin{equation}
+  \label{eqn:5.2}
+  f(y)=f(y_0)+Df(y_0)(y-y_0)+\phi(y-y_0), \lim_{y\to y_0}\frac{\phi(y-y_0)}{\Norm{y-y_0}}
+  \end{equation}
+  Putting $y:=f(x), x\in\Set{U}$, we get (allowed since $f$ continuous):
+  \begin{equation}
+  \label{eqn:5.3}
+  y-y_0=f(x)-f(x_0)=Df(x_0)(x-x_0)+\phi(x-x_0)
+  \end{equation}
+  Using this equations, we wan to give a linear approximation of $g\circ f$ in $g(f(x_0))=g(y_0)$: 
+  \begin{align*}
+  	&g(f(x))\\
+  	\eqsince{\eqref{eqn:5.2}}&g(f(x_0))+\left(Dg(f(x_0)(x-x_0)+\phi(x-x_0)\right)+\phi(f(x)-f(x_0))\\
+  	\eqsince{\eqref{eqn:5.1}}&g(f(x_0))+Dg(f(x_0))\left(Df(x_0)(x-x_0)+\phi(x-x_0)\right)+\phi(f(x)-f(x_0))\\
+  	\eqsince{linearity}&g(f(x_0))+Dg(f(x_0))\left(Df(x_0)(x-x_0)\right)+Dg f(x_0)\phi(x-x_0)+\psi(f(x_0)-f(x_0)). \\ &\text{\hspace{-1cm}Defining $\psi(\theta(fx-x_0):=\psi(f(x)-f(x_0))+Dg(f(x_0))\phi(x-x_0)$:}\\
+  	=&(g\circ f)(x_0)+Df(x_0)\circ D(g\circ f)(x_0)(x-x_0)+\theta(x-x_0).
+  \end{align*}
+  Firstly, since $Dg(f(x_0))\in L(\RR^m,\RR^n)$, it follows from \[\lim_{x\to x_0}\frac{\phi(x-x_0)}{\Norm{x-x_0}}=0, \text{ that}\]
+  \[\lim_{x\to x_0}\frac{Dg(f(x_0))\phi(x-x_0)}{\Norm{x-x_0}}=0\]
+  Secondly, define $\phi_0$ by $\phi(y-y_0)=:\Norm{y-y_0}\Psi_0(y-y_0)$, so $\lim_{x-x_0}\Psi_0(y-y_0)=0$ and use \eqref{eqn:5.1}, the triangular inequality and the operator norm to estimate:
+  \begin{align*}
+  	&\Norm{\Psi(f(x)-f(x_0)}=\Norm{f(x)-f(x_0)}\Norm{\Psi_0(f(x)-f(x_0)}=\Norm{df(x_0)(x-x_0)+\phi(x-x_0)}\\
+  	=&\Norm{\Psi_0(f(x))-f(x_0)}\leq\left(\Norm{Df(x_0)(x-x_0)}+\Norm{\phi(x-x_0)}\right)\Norm{\Psi_0(f(x)-f(x_0)}\\
+  	=&\Norm{Df(x_0)}\Norm{x-x_0}
+  \end{align*}
+  Division by $\Norm{x-x_0}$ yields:
+  \begin{align*}
+  	0&\\\leq&\frac{\Psi(f(x)-f(x_0)}{\Norm{x-x_0}}\\
+  	\leq&\left(\Norm{Df(x_0)}+\frac{\Norm{\phi(x-x_0)}}{x-x_0}\right)\Norm{\Psi(f(x)-f(x_0)}
+  \end{align*}
+  Since $\lim_{z\to 0}\Psi_0(z)=0$ and $f$ is continuous in $x_0$, so $\lim_{x\to x_0}f(x)=f(x_0)$, we obtain $\lim_{x\to x_0}\Psi_0(f(x)-f(x_0))=0$. We can conclude \[\lim_{x\to x_0}\text{RHS}=0\Rightarrow\lim_{x\to x_0}\frac{\Psi(f(x)-f(x_0)}{\Norm{x-x_0}}=0.\]
 \end{proof}
+\begin{prop}[Lipschitz continuity and $Df=0\Rightarrow f$ constant]
+  Let $f:\Set{U}\to \RR^m$, $\Set{U}\subset\RR^n$ open and convex, i.e. $\forall u, v\in\Set{U}, \forall t\in[0,1]:\:(1-t)u+tv\in\Set{U}$, be differentiable in $\Set{U}$ s.t. $\exists M\geq 0$ with $\Norm{Df(x)}\leq M, \forall x\in\Set{U}$. Then, $f$ is $M$-Lipschitz continuous on $\Set{U}$, i.e. $\Norm{f(x)-f(y)}\leq M\Norm{x-y}, \forall x, y\in\Set{U}$. In particular, if $M=0$ meaning that $Df$ is constant on $\Set{U}$ then $f$ is a constant function.
+\end{prop}
+\begin{proof}
+  To be continued\ldots
+\end{proof}
+\begin{rem}
+  The special case is a generalisation of hte statement that if $f:I\to \RR$ is differentiable with $f\cong 0$, then $f$ must be constant. 
+\end{rem}
+\begin{defn}
+  Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open and consider $x_0\in\Set{U}$ and $v\in\RR^n$ so that $\Norm{v}=1$. If the limit exists $D_vf(x_0):=\lim_{t\to 0}\frac{f(x_0+tv)-f(x_0)}{t}$, it is called the directional derivative of $f$ in $x_0$ in direction of $v$. 
+\end{defn}
+\begin{exam}
+  $f:\RR^2\to \RR, f(x,y):=\begin{cases}
+  \frac{xy}{x^2+y^2}\qquad (x,y)\neq 0\\0\qquad\text{otherwise}\end{cases}$. We can check that the partial and even the total differential exist in all $(x,y)\neq 0$, but $f$ is not continuous in $0$. It is, however, more interesting to look for $f$ in $0$. So we will later come back to this example. 
+\end{exam}
+\begin{defn}
+  If $v=e_j\qquad\forall j\in\upto{n}$ in previous definition, then the corresponding directional derivatives the $j$-th partial derivatives of $f$ in $x_0$ denoted by $f_{x_j}(x_0), D_j(f(x_0)), \frac{\partial f}{\partial x_j}(x_0)$. 
+\end{defn}
+\begin{exam}\ 
+  \begin{enumerate}
+  	\item $f:\RR\to\RR, f(x,y):=x^2+y^2$, $\frac{\partial f}{\partial x}((x,y))=2x, \frac{\partial f}{\partial y}((x,y))=2y$
+  	\item $g:\RR^2\to\RR, g(x,y):=\begin{cases}
+  	\frac{xy}{x^2+y^2}\qquad (x,y)\neq 0\\0\qquad\text{otherwise}\end{cases}$. $\frac{\partial g}{\partial x}((0,0))=\lim_{t\to 0}\frac{g((t,0))}{t}=\lim_{t\to 0}\frac{0}{t}=0$, $\frac{\partial g}{\partial y}((0,0))=\lim_{t\to 0}\frac{g((0,t))}{t}=\lim_{t\to 0}\frac{0}{t}=0$. However, $g$ is not continuous in 0 let alone differentiable: $y:=\alpha x_i, \lim_{x\to 0}\frac{x\alpha x}{x^2+\alpha^2x^2}=\frac{\alpha}{1+\alpha^2}$
+  	\item Show that $f$ has partial derivatives everywhere apart from the origin. 
+  \end{enumerate}
+\end{exam}
+\begin{defn}
+  $f:\Set{U}\to\RR$, $\Set{U\subset\RR}$ open is called partially differentiable iff partial derivatives exist and are continuous on $\Set{U}$. 
+\end{defn}
+\begin{exam}
+  \begin{enumerate}
+  	\item $f:\RR^2\to\RR, f((x,y)):=x^2+y^2$, is continuously partially differentiable on $\RR^2$, since both $\RR^2\to \RR, (x,y)\to2x, (x,y)\to2y$ are continuous on $\RR^2$. 
+  	\item Norms on $\RR^k$ are continuously partially differentiable on $\RR^k\setminus\{0\}$. 
+  \end{enumerate}
+\end{exam}
+\begin{defn}[Jacobean]
+  $f:\Set{U}\to\RR^m$, $\Set{U}\subset\RR^n$ open, so that all partial derivatives $\frac{\partial f_i}{\partial x_j}(x_0), \forall i\in\upto{m}, j\in\upto{n}$ in $\x_o$ exist. Then the matrix $J_f(x_0):=\left(\frac{\partial f_i}{\partial x_j}\right)_{1\leq n}^{1\leq m}\in\RLinSpaNM{m}{n}$ is called the Jacobean matrix of $f$ in $x_0$. 
+\end{defn}
+\begin{rem}
+  We will see that in the special case $m=1$, the Jacobean is also called gradient of $f$ in $x_0$ and has a special geometric meaning. 
+\end{rem}
+\begin{exam}
+  $f:\RR^3\to\RR^2, f((x,y)):=\lrrvector{x^2+y^2+z^2}{xyz}$. $f$ is continuously partially differentiable everywhere and the Jacobean is given by $J_f((x,y,z))=\lrrrccmatrix{2x}{2y}{2z}{yz}{xz}{xy}\in\RLinSpaNM{2}{3}$. 
+\end{exam}
