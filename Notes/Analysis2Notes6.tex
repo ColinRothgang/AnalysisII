@@ -1,0 +1,23 @@
+\begin{thm}[total differentiability implies partial differentiability]
+  Let $f:\Set{U}\to\RR^m, \Set{U}$ open be totally differentiable in $x_0\in\Set{U}$. Then $f$ is partially in $x_0$ and $\left[df(x_0)\right]=J_f(x_0)$. 
+\end{thm}
+\begin{proof}
+  $f$ is totally differentiable in $x_0\Rightarrow \forall h\in \RR^n.\:f(x_0+h)=f(x_0)+Ah+\phi(h)$, where $\lim_{h\to 0}\frac{\phi(h)}{h}=0$. Define $\left[Df(x_0)\right]:=A(x_0)=(a_{i,j})_{1\leq i\leq n}^{1\leq i \leq m}$. Note we can write $Df(x_0)(h)=Ah=\ltttmatrix{a_{1,1}}{\ldots}{a_{1,n}}{\vdots}{\ddots}{\vdots}{a_{m,1}}{\ldots}{a_{m,n}}\lrrrvector{h_1}{\vdots}{h_n}=\lrrrvector{\sum_{j=1}^{n}a_{1,j}h_j}{\vdots}{\sum_{j=1}^{n}a_{m,j}h_j}$. Written componentwise, this means for $i\in\upto{m}: f_i(x_0+h)=f_i(x_0)+\sum_{j=1}^{n}a_{i,j}h_j+\phi(h)$, where $\phi\left(\lrrrvector{\phi_1}{\vdots}{\phi}\right)$ and $\lim_{h\to 0}\frac{\phi_i(h)}{\Norm{h}}=0$. Now putting $h=te_j, t\in\RR\Rightarrow x_0+te_j\in\Set{U}, \forall j\in\upto{n}$. Thus, $f_j(x_0+te_j)=f_i(x_0)+\sum_{l=1}^{n}a_{il}th_i+\phi_i(te_j)=f_j(x_0)+ta_{ij}+\phi(te_j)$. Finally, let us look at the $j$-th partial derivatives $\frac{\partial f_i}{\partial x_j}(x_0)$ of the $i$-th component $f_i$ of $f$ in $x_0$. By definition $\frac{\partial f_i}{\partial x_j}(x_0)=\lim_{t\to 0}\frac{f_j(x_0+te_j)-f(x_0)}{t}=\lim_{t\to 0}\frac{ta_{ij}+\phi_i(te_j)}{t}=a_{ij}t\lim_{t\to 0}\frac{\phi_i(te_j)}{\Norm{te_j}}=0$, since $\lim_{h\to 0}\frac{\phi_i(h)}{\Norm{h}}=0$. 
+  
+  Thus, the matrix $A$ giving the differential is exactly the Jacobean in $x_0$. 
+\end{proof}
+\begin{thm}[$\exists$ and continuity of partial derivatives $\Rightarrow$ total differentiability]
+  
+\end{thm}
+\begin{rem}
+  Now given a partial differentiable function we can first determine the Jacobean, check its partial derivatives for continuity and if they are construct the total differential using the Jacobean. 
+\end{rem}
+\begin{exam}
+  $f:\RR^3\to\RR^2, f((x,y))=\lrrvector{x^2+y^2+z^2}{xyz}, J_f((x_0,y_0, z_0))=\lrrcccmatrix{2x_0}{2y_0}{2z_0}{y_0z_0}{x_0z_0}{x_0y_0}\in\RLinSpaNM{3}{2}$. Therefore, $Df((x_0, y_0, z_0))\in\RLSpaNM{n}{m}$ is defined as $Df((x_0,y_0,z_0))(x,y,z)=\lrrvector{2(x_0x+y_0y+z_0z)}{xy_0z_0+x_0yz_0+x_0y_0z}$. 
+\end{exam}
+\begin{rem}
+  The converse is not true, $f$ totally differentiable $\nRightarrow$ continuous partially differentiable. For instance in case of \[f:\RR^2\to \RR, f((x,y))=\begin{cases}(x^2+y^2)\sin\left(\frac{1}{\sqrt{x^2+y^2}}\right)\qquad(x,y)=0\\0\qquad\qquad\qquad\qquad\qquad\qquad\text{otherwise}\end{cases}.\]
+\end{rem}
+\begin{rem}
+  One can show that continuous partial differentiability is equivalent to continuous total differentiability in the sense that $x\to Df(x)$ is continuous. 
+\end{rem}
