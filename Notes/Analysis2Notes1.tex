@@ -7,7 +7,7 @@ It's important to study the way functions in several variables change (leading t
  \end{itemize}
 \end{exam}
 \paragraph{Base idea}
-Understand differentiation as linearisation. In one dimension this corresponds to finding the tangent line to the graph of a function. In two dimensions we can look either for tangent lines or a tangent plane. 
+Understand differentiation as linearisation. In one dimension this corresponds to finding the tangent line to the graph of a function. In two dimensions we can look either for tangent lines (partial differentiability) or a tangent plane (total differentiability). We will see that total differentiability $\implies$ partial differentiability.
 \section{Norms, Metrics and Banach and Hilbert spaces}
 \begin{defn}
  Let $\Set{X}$ be a set. Now $\circ:\RR^n\to\RR^{\geq 0}$ is called a norm iff:
@@ -47,11 +47,13 @@ For $p=1$ we call the norm the Manhatten norm, for $p=2$ we call the norm the Eu
 \begin{exc}
  If $\Set{X}$ is a normed vector space, then $\dist{x}{y}:=\Norm{x-y}$ is a metric. 
  In particular all $p$-norms on $\RR^2$ are equivalent i.e.
- $$\exists C\in\RR,\,C=C(x,p,q)\geq 1:\ \frac{1}{c}\leq\frac{\Norm{x}_p}{\Norm{x}_q}\leq C, \qquad\forall x\in\RR^n.$$
+ $$\exists C\in\RR,\,C=C(x,p,q)\geq 1:\ \frac{1}{C}\leq\frac{\Norm{x}_p}{\Norm{x}_q}\leq C, \qquad\forall x\in\RR^n.$$
  This implies that all these norms define the same topology on $\RR^n$. 
 \end{exc}
 \begin{rem}
- Given a metric space $(\Set{X}, \dis)$, sets of the form $\Ball{x}{R}:=\{y\in\Set{X}.\dist{x}{y}<R\}, \qquad\forall x\in\Set{X}, R\geq 0$, are called open balls centered at $x$ with radius $R$ in $\Set{X}$. In $\RR^n$ we define the topology by saying that a set $\Set{O}\subset\RR^n$ is open iff $\forall x\in\Set{O}, \exists R=R(x)>0. \,\Ball{x}{R}\subset\Set{O}$.
+  Given a metric space $(\Set{X}, \dis)$, sets of the form
+  $$\Ball{x}{R}:=\{y\in\Set{X}: x\in\Set{X}. R \in \RR \geq 0. \dist{x}{y}<R\}$$
+  , are called ``open balls in $\Set{X}$'' (centered at $x$ with radius $R$). For example, we define a topology in $\RR^n$ by saying that a set $\Set{O}\subset\RR^n$ is open iff $\forall x\in\Set{O}, \exists R=R(x)>0. \,\Ball{x}{R}\subset\Set{O}$.
 \end{rem}
 \begin{defn}
  A sequence $(x_k)_{k\in\NN}$ in $\RR^n$ converges to $\Set{X}\in\RR^n$ iff $\Norm{x_k-x}\overset{k\to\infty}{\longrightarrow}0$, or equivalently if $\forall \epsilon>0.\,\exists N\in\NN, \,\forall n\geq N\in\NN.\ \Norm{x_n-x}<\epsilon$ or equivalently $\forall x\in\RR^n,\,\forall \Set{O}\in\Set{T}_{\RR}\|x\in\Set{O}.\,\exists N\in\NN.\,\forall n\geq N\in\NN.\ x_n\in\Set{O}$. If the limit exists we write $\lim_{k\to\infty}x_k$.
@@ -63,7 +65,7 @@ For $p=1$ we call the norm the Manhatten norm, for $p=2$ we call the norm the Eu
 \end{lem}
 \begin{proof}
  ``$\Rightarrow$'': We easily observe $$\forall x\in\RR^n, \forall i\in\{1, 2, \ldots,n\}. \Norm{x}=\sqrt{x_1^2+\ldots+x_n^2}\geq \sqrt{x_i ^2}=\abs{x_i}$$
- Fix $\epsilon>0$, for any $i\in\{1, 2, \ldots, n\}$ we have $\epsilon_i':=\frac{\epsilon}{\sqrt{n}},\,\exists\abs{x{k_i}-x_i}<\epsilon'=\frac{\epsilon}{\sqrt{n}}.\qquad\forall k\geq N_{\epsilon}^i$. Now take $N_\epsilon:=\max\{N_{\epsilon}^1, N_{\epsilon}^2, \ldots, N_{\epsilon}^n\}$, then $$\Norm{x_k-x}=\left(\sum_i(x_{k_i-x_i})^2\right)^{\frac{1}{2}}<\sqrt{\sum_i \epsilon'^2}=\epsilon\qquad\forall k\geq N_\epsilon.$$
+ Fix $\epsilon>0$, for any $i\in\{1, 2, \ldots, n\}$ we have $\epsilon_i':=\frac{\epsilon}{\sqrt{n}},\,\exists\abs{x_{k_i}-x_i}<\epsilon'=\frac{\epsilon}{\sqrt{n}}.\qquad\forall k\geq N_{\epsilon}^i$. Now take $N_\epsilon:=\max\{N_{\epsilon}^1, N_{\epsilon}^2, \ldots, N_{\epsilon}^n\}$, then $$\Norm{x_k-x}=\left(\sum_i(x_{k_i-x_i})^2\right)^{\frac{1}{2}}<\sqrt{\sum_i \epsilon'^2}=\epsilon\qquad\forall k\geq N_\epsilon.$$
 \end{proof}
 
 \begin{exam}
