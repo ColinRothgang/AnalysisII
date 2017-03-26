@@ -36,12 +36,13 @@ For $p=1$ we call the norm the Manhatten norm, for $p=2$ we call the norm the Eu
 \end{defn}
 
 \begin{defn}
- Let $x$ be a set, $\dis:\Set{X}\times\Set{X}\to\RR{\geq 0}$ with 
+ Let $\Set{X}$ be a set, $\dis:\Set{X}\times\Set{X}\to\RR{\geq 0}$ with 
  \begin{enumerate}
-  \item $\dist{x}{y}=0\Leftrightarrow x=y$
-  \item $\dist{x}{y}=\dist{y}{x}\qquad\forall x,y\in\Set{X}$
-  \item $\dist{x}{z}\leq \dist{x}{y}+\dist{y}{z}$
- \end{enumerate}, then $\dis$ is called a metrix on $\Set{X}$ and $(\Set{X}, \dis)$ is called a metric space. 
+ \item $\dist{x}{y} \geq 0$ \qquad ;non-negativity
+  \item $\dist{x}{y}=0\Leftrightarrow x=y$ \qquad ;identity of indiscernibles
+  \item $\dist{x}{y}=\dist{y}{x}$ \qquad ;symmetry
+  \item $\dist{x}{z}\leq \dist{x}{y}+\dist{y}{z}$ \qquad ;triangle inequality
+ \end{enumerate}, then $\dis$ is called a metric on $\Set{X}$ and $(\Set{X}, \dis)$ is called a metric space.
 \end{defn}
 \begin{exc}
  If $\Set{X}$ is a normed vector space, then $\dist{x}{y}:=\Norm{x-y}$ is a metric. 
