@@ -40,9 +40,9 @@
   Using this equations, we wan to give a linear approximation of $g\circ f$ in $g(f(x_0))=g(y_0)$: 
   \begin{align*}
   	&g(f(x))\\
-  	\eqsince{\eqref{eqn:5.2}}&g(f(x_0))+\left(Dg(f(x_0)(x-x_0)+\phi(x-x_0)\right)+\phi(f(x)-f(x_0))\\
-  	\eqsince{\eqref{eqn:5.1}}&g(f(x_0))+Dg(f(x_0))\left(Df(x_0)(x-x_0)+\phi(x-x_0)\right)+\phi(f(x)-f(x_0))\\
-  	\eqsince{linearity}&g(f(x_0))+Dg(f(x_0))\left(Df(x_0)(x-x_0)\right)+Dg f(x_0)\phi(x-x_0)+\psi(f(x_0)-f(x_0)). \\ &\text{\hspace{-1cm}Defining $\psi(\theta(fx-x_0):=\psi(f(x)-f(x_0))+Dg(f(x_0))\phi(x-x_0)$:}\\
+  	\eqSince{\eqref{eqn:5.2}}&g(f(x_0))+\left(Dg(f(x_0)(x-x_0)+\phi(x-x_0)\right)+\phi(f(x)-f(x_0))\\
+  	\eqSince{\eqref{eqn:5.1}}&g(f(x_0))+Dg(f(x_0))\left(Df(x_0)(x-x_0)+\phi(x-x_0)\right)+\phi(f(x)-f(x_0))\\
+  	\eqSince{linearity}&g(f(x_0))+Dg(f(x_0))\left(Df(x_0)(x-x_0)\right)+Dg f(x_0)\phi(x-x_0)+\psi(f(x_0)-f(x_0)). \\ &\text{\hspace{-1cm}Defining $\psi(\theta(fx-x_0):=\psi(f(x)-f(x_0))+Dg(f(x_0))\phi(x-x_0)$:}\\
   	=&(g\circ f)(x_0)+Df(x_0)\circ D(g\circ f)(x_0)(x-x_0)+\theta(x-x_0).
   \end{align*}
   Firstly, since $Dg(f(x_0))\in L(\RR^m,\RR^n)$, it follows from \[\lim_{x\to x_0}\frac{\phi(x-x_0)}{\Norm{x-x_0}}=0, \text{ that}\]

@@ -2,10 +2,13 @@
   Let $f:\Set{U}\to\RR^m, \Set{U}\subset\RR^m$ open be any function and let its partial derivatives $\partDeriv{f}{x_i}\Set{U}\to\RR$ iff $\i\in\upto{m}, j\in\upto{1,n}$ exist and are continuous ($f$ is continuously differentiable). Then $f$ is totally differentaible and the total differential is given as $[Df(x_0)]=J_f(x_0)\qquad\forall x_0\in\Set{U}$. 
 \end{thm}
 \begin{proof}
-  Wlog. let $m=1$ (component-wise total differentiability is equivalent to total differentiability as already shown). WE need to show (given fixed $x_0$) $f(x_0+h)=f(x_0)+Ah+\phi(h)$ with $\lim_{h\to 0}\frac{\phi(h)}{\Norm{h}}=0,\:\forall h\in\RR^n$, put $h^0:=0\in\RR^n, \ldots h^j:=\sum_{l=1}^{j}h_le_l=(h_1e_1, \ldots, h_je-j,0,\ldots, 0),\ldots, h^n=h$, where $h=\sum_{l=1}^{n}h_1e_1$ with $h_j\in\RR$ and $\{\fseq{e}{n}\}$ the standard basis in $\RR^n$. We can write \begin{equation}
+  Wlog. let $m=1$ (component-wise total differentiability is equivalent to total differentiability as already shown). WE need to show (given fixed $x_0$) $f(x_0+h)=f(x_0)+Ah+\phi(h)$ with $\lim_{h\to 0}\frac{\phi(h)}{\Norm{h}}=0,\:\forall h\in\RR^n$, put $h^0:=0\in\RR^n, \ldots h^j:=\sum_{l=1}^{j}h_le_l=(h_1e_1, \ldots, h_je-j,0,\ldots, 0),\ldots, h^n=h$, where $h=\sum_{l=1}^{n}h_1e_1$ with $h_j\in\RR$ and $\{\fseq{e}{n}\}$ the standard basis in $\RR^n$. We can write \begin{align*}
   	\label{eqn:partContToTotDiff1}
-  	f(x_0+h)-f(x_0)=f(x_0+h)-f(x_0+h^{n-1})+f(x_o+h^{n-1})-\ldots+f(x_0+h^1)-f(x_0)=\sum_{j=1}^{n}f(x_0+h^j)-f(x_0+h^{j-1})
-  \end{equation}
+  	f(x_0+h)-f(x_0)=f(x_0+h)-f(x_0+h^{n-1})+f(x_o+h^{n-1})-\ldots+f(x_0+h^1)-f(x_0)
+  \end{align*}
+  \begin{align}
+  	=\sum_{j=1}^{n}f(x_0+h^j)-f(x_0+h^{j-1})
+  \end{align}
   Applying the mean value theorem to $f$ restricted to the segments $[x_0+h^j, x_0+h^{j+1}]$ leads to $\exists \xi_j\in(x_0+h^{j-1},x_0+h^j)$, so that $\partDeriv{f}{x_j}(x_0+h^j+\xi_j)=\frac{f(x_0+h^j)-f(x_0+h^{j-1})}{h_j}$. 
   \begin{ldefn}
   	Here a segment in $\RR^n$ is defined as $[x,y]:=\{(1-t)x+ty:t\in[0,1]\}\qquad\forall x, y\in\RR^n$. 
@@ -14,5 +17,48 @@
   Coming back to the definition we want to show that $\lim_{h\to 0}\frac{\phi(h)}{\Norm{h}}=0$, where $$S\phi(h)=f(x_0)-f(x_0+h)-Ah=\sum_{j=1}^{n}\left(\partDeriv{f}{x_j}\left(x_0+h^{j-1}+\xi^jh_je_j\right)-\partDeriv{f}{x_j}(x_0)\right)h_j.$$
   By construction, $(x_0+h^{j-1}+\xi^jh_je_j)\overset{h\to 0}{\longrightarrow}x_0$. Therefore, by continuity of $\partDeriv{f}{x_j}\Rightarrow(x_0+h^{j-1}+\xi^jh_je_j)\to\partDeriv{f}{x_j}(x_0)$ and hence $\lim_{h\to 0}\phi(h)=0$. 
   Now putting $\phi_j(h):=\partDeriv{f}{x_j}(x_0+h^{j-1}+\xi^jh_je_j)-\partDeriv{f}{x_j}(x_0)$ we obtain a function $\Psi:h\to\sum_{j=1}^{n}\Psi_j(h)e_j$, with $\phi(h)=\inPro{\Psi(h)}{h}$. Then, we can estimate $\abs{\phi(h)}=\inPro{\Psi(h)}{h}\leq \Norm{\Psi(h)}\cdot\Norm{h}$, where the last estimation is by Cauchy-Schwartz-Inequality. 
-  
+  Hence, $$0<\frac{\abs{\phi(h)}}{\Norm{h}}\leq\frac{\Norm{\phi(h)}\Norm{h}}{\Norm{h}}=\Norm{\Psi(h)}\overset{h\to0}{\longrightarrow}0.$$
 \end{proof}
+\begin{cor}
+  Recalling the chain rule for the total differential: $\RR^m\supset\Set{U}\overset{f}{\to}\Set{V}\subset\RR^n\overset{g}{\to}\RR^p$, $f$ differentiable in $x_0$, $g$ differentiable in $y_0:=f(x_0)\Rightarrow g\circ f$ differentiable in $x_0$ and $Dg\circ f(x_0)=Dg(x_0)\circ Df(x_0)$. Knowing $[Df(x_0)]=J_f(x_0), [Dg(x_0)]=J_g(y_0)$ and $[Dg\circ f(x_0)]=J_{g\circ f}(x_0)$ we can conclude that $J_{g\circ f}(x_0)=J_g(f(x_0))\cdot J_f(x_0)$. 
+\end{cor}
+\begin{exam}
+  \begin{enumerate}
+  	\item $f:\lrrvector{x}{y}\to\lrrvector{x^2+y^2}{2xy}, g:\lrrvector{u}{v}\to u+v$, then $g\circ f: x^2+2xy+y^2=(x+y)^2$ and $J_{g\circ f}(x,y)=\lccvector{2(x+y)}{2(x+y)}=2\lccvector{x+y}{x+y}$. On the other hand: $J_g(u,v)=(1,1)$ and $J_f(x,y)=\lttmatrix{2x}{2y}{2y}{2x}=2\lttmatrix{x}{y}{y}{x}\Rightarrow J_g(f(x,y))\cdot J_f(x,y)=2\lccvector{1}{1}\cdot \lttmatrix{x}{y}{y}{x}=2\lccvector{x+y}{x+y}$.
+  	\item $$f:(x,y)\frac{1}{xy}, g:t\to\lrrvector{t}{t^2}$$. $J_f(\lccvector{x}{y})=\lccvector{\frac{1}{x^2y}}{\frac{1}{xy^2}}, J_g(\lccvector{x}{y})=\lrrvector{1}{2t}\follows{chain rule}J_{g\circ f}(\lccvector{x}{y})=J_g(f(\lccvector{x}{y}))\cdot J_f(\lccvector{x}{y})=\lrrvector{1}{\frac{2}{xy}}\lccvector{-\frac{1}{x^2y}}{-\frac{1}{xy^2}}=\lttmatrix{-\frac{1}{x^2y}}{-\frac{1}{xy}}{-\frac{2}{x^3y^2}}{-\frac{2}{x^2y^3}}$. On the other hand: $g\circ f(\lccvector{x}{y})=g(f(\lccvector{x}{y}))=g(\frac{1}{xy})=\lrrvector{\frac{1}{xy}}{\frac{1}{x^2y^2}}\Rightarrow J_{g\circ f}(\lccvector{x}{y})=\lttmatrix{-\frac{1}{x^2y}}{-\frac{1}{xy}}{-\frac{2}{x^3y^2}}{-\frac{2}{x^2y^3}}$.
+  	\item $f:t\to\lrrvector{f}{\frac{1}{t}}, g:\lccvector{u}{v}\to uv\Rightarrow J_f(\lrrvector{1}{-\frac{1}{t^2}}), J_g(\lccvector{u}{v})=\lccvector{v}{u}\follows{chain rule}J_{g\circ f}(t)=J_g\cdot J_f=\lccvector{\frac{1}{t}}{t}\lrrvector{1}{\frac{1}{t^2}}=\frac{1}{t}-\frac{1}{t}=0$. 
+  \end{enumerate}
+\end{exam}
+\begin{defn}
+  Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open, partially differentiable in $x_0\in\Set{U}$. Then, the Jacobean of $f$ in $x_0$ is also called the gradient of $f$ in $x_0$ an denoted by $\nabla f(x_0)$. Thus, we have $\nabla f(x_0)=\sum_{j=1}^{n}\partDeriv{f}{x_j}(x_0)e_j=\lcccvector{\partDeriv{f}{x_1}}{\ldots}{\partDeriv{f}{x_n}}$. 
+\end{defn}
+\begin{rem}
+  We will see that the gradient can be used to compare directional derivatives and we can interpret it geometrically as the direction of maximal increase of $f$ in $x_0$. 
+\end{rem}
+\begin{prop}
+  Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open, be continuously differentiable on $\Set{U}$. Then, $\forall x\in\Set{U}, \forall v\in\RR^n$ with $\Norm{v}=1$ we have $D_v f(x)=\inPro{\nabla f(x)}{v}$. 
+\end{prop}
+\begin{proof}
+  Consider the line $\{x+tv:t\in\RR\}$ in $\RR^n$, which is parallel to the unit vector $v$. Since $\Set{U}$ is open, $\exists \epsilon>0$ so that $x+tv\in\Set{U}, \forall t\in(-\epsilon,\epsilon)$. Define $\phi:(-\epsilon,\epsilon)\to\Set{U}; \phi(t):=x+tv$ and consider $F:=f\circ \phi:(-\epsilon, \epsilon)\to\RR$. Applying the chain rule in this situation yields $J_f(t)=J_F(\phi(t))\cdot J_g(t)=\nabla f(\phi(t))\cdot \lrrrvector{\phi_1'(t)}{\vdots}{\phi_n'(t)}\eqSince{definition}\lrrrvector{v_1}{\vdots}{v_n}=\inPro{\nabla f((\phi(t)))}{v}$. In particular for $t=0$, $J_F(0)=\inPro{\nabla f(x)}{v}$. By definition of hte directional derivative, we have that $D_v f(x)=\lim_{t\to 0}\frac{f(x+tv)-f(x)}{t}=\lim_{t\to 0}\frac{F(t)-f(0)}{t}=F'(0)$.
+\end{proof}
+\begin{rem}
+  The assumption of continuity of partial derivatives is not necessary. 
+\end{rem}
+\begin{cor}
+  In the situation of the last proposition the gradient gives the direction of maximal increase in each point in $x\in\Set{U}$. This means that $D_v f(x)$ is maximal for $v=\frac{\nabla f(x)}{\Norm{\nabla f(x)}}$. Furthermore, if $\nabla f(x)$ is not zero $D_vf(x)=0$ iff $v\perp \nabla f(x)$, and always if $\nabla f(x)=0$. 
+\end{cor}
+\begin{proof}
+  Assume $\nabla f(x)\neq 0$ (otherwise the claim is obvious). Thus $\theta:=\angleBetween{\nabla f(x)}{v}$ is well defined and we obtain $\cos(\theta)=\frac{\inPro{\nabla f(x)}{v}}{\Norm{\nabla f(x)}\Norm{v}}$ and thus $D_v f(x)=\inPro{\nabla f(x)}{v}=\Norm{\nabla f(x)}\cos(\theta)$, which is maximal iff $\cos(\theta)=1\Leftrightarrow \theta=\frac{\pi}{2}$. Also $v\perp f(x)\Leftrightarrow \theta=\frac{\pi}{2}\Leftrightarrow\cos(\theta)=0=\inPro{\nabla f(x)}{v}$. 
+\end{proof}
+\begin{rem}
+  We can visualize this statement by the ``Hill Billy'' example; here the gradient corresponds to the direction of steepest ascend $\perp$ constant height lines. Also a river bed $g(t)$ satisfies $\phi'(t)=-\nabla f(\phi(t))$.
+\end{rem}
+\begin{exam}
+  \begin{enumerate}
+  	\item the paraboloid: $f:\RR^2\to\RR, f(\lccvector{x}{y})=x^2+y^2$. What is the direction $\frac{v}{\Norm{v}}$ and magnitude $\Norm{v}$ of maximal increase $v$ of $f$ in $\lccvector{1}{1}$?
+  	$$\nabla f(\lccvector{1}{1})=\lccvector{2}{2}\Rightarrow \frac{v}{\Norm{v}}=\lccvector{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}}\land \Norm{v}=2\sqrt{2}.$$
+  	\item $f:\RR^2\to \RR, f(\lccvector{x}{y}):=x^2+e^{xy}\sin(y)$.
+  	Some question; Find the direction $\frac{v}{\Norm{v}}$ and magnitude $\Norm{v}$ of maximal increase $v$ of $f$ in $\lccvector{0}{1}$.
+  	\begin{align*}\nabla f=\lccvector{2xy+ye^{xy}\sin(y)}{x^2+xe^{xy}\sin(y)+e^{xy}\cos(y)}\\\Rightarrow \nabla f(\lccvector{1}{0})=\lccvector{0}{2}\Rightarrow \frac{v}{\Norm{v}}=\lccvector{0}{1}\land \Norm{v}=2.\end{align*}
+  \end{enumerate}
+\end{exam}
