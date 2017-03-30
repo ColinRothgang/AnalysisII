@@ -51,12 +51,12 @@ For $p=1$ we call the norm the Manhatten norm, for $p=2$ we call the norm the Eu
  This implies that all these norms define the same topology on $\RR^n$. 
 \end{exc}
 \begin{rem}
-  Given a metric space $(\Set{X}, \dis)$, sets of the form
-  $$\Ball{x}{R}:=\{y\in\Set{X}: x\in\Set{X}\},\qquad \forall R \in \RR \geq 0. \dist{x}{y}<R,$$
+  Given a metric space $(\Set{X}, \dis)$, for any $R \in \RR \geq 0,x\in\Set{X}$ sets of the form
+  $$\Ball{x}{R}:=\{y\in\Set{X}:  \dist{x}{y}<R\},$$
   are called ``open balls in $\Set{X}$'' (centered at $x$ with radius $R$). For example, we define a topology in $\RR^n$ by saying that a set $\Set{O}\subset\RR^n$ is open iff $\forall x\in\Set{O}, \exists R=R(x)>0. \,\Ball{x}{R}\subset\Set{O}$.
 \end{rem}
 \begin{defn}
- A sequence $(x_k)_{k\in\NN}$ in $\RR^n$ converges to $\Set{X}\in\RR^n$ iff $\Norm{x_k-x}\overset{k\to\infty}{\longrightarrow}0$, or equivalently if $\forall \epsilon>0.\,\exists N\in\NN, \,\forall n\geq N\in\NN.\ \Norm{x_n-x}<\epsilon$ or equivalently $\forall x\in\RR^n,\,\forall \Set{O}\in\Set{T}_{\RR}\|x\in\Set{O}.\,\exists N\in\NN.\,\forall n\geq N\in\NN.\ x_n\in\Set{O}$. If the limit exists we write $\lim_{k\to\infty}x_k$.
+ A sequence $(x_k)_{k\in\NN}$ in $\RR^n$ converges to $\Set{X}\in\RR^n$ iff $\Norm{x_k-x}\overset{k\to\infty}{\longrightarrow}0$, or equivalently if $\forall \epsilon>0.\,\exists N\in\NN, \,\forall n\geq N\in\NN.\ \Norm{x_n-x}<\epsilon$ or equivalently $\forall x\in\RR^n,\,\forall \Set{O}\text{ open},\,x\in\Set{O}.\,\exists N\in\NN.\,\forall n\geq N\in\NN.\ x_n\in\Set{O}$. If the limit exists we write $\lim_{k\to\infty}x_k$.
 \end{defn}
 \begin{lem}
  \label{lem:comp}
