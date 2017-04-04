@@ -1,0 +1,45 @@
+\begin{exam}
+  \begin{enumerate}
+  	\item $f:\RR^3\to\RR, f(x,y,z):=x^4-2xy+z^3$ find directional derivative of $f$ at $1,0,1)$ in direction $(-3,6,-2)$. 
+  	\item What is the direction of maximal increase of $f$ in $(1,0,1)$ and what is the rate of change in that direction. 
+  \end{enumerate}
+  The proof is left as an exercise to the reader. 
+\end{exam}
+\begin{defn}
+  Let $\Set{U}\to\RR, \Set{U}\subset\RR^n$ open be some function and consider $l\in\RR$. The level set (also called contour-line, \ldots) of $f$ at level $l$ is defined as $\Set{N}_f(l):=\{x\in\Set{U}:f(x)=l\}$. 
+\end{defn}
+\begin{prop}
+  Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open be differentaible on $w$. Then, $\nabla f(x)$ with  is orthogonol to $\lev{f}{f(x_0}$ i.e. for any continuous differentiable mapping $\phi:(-\epsilon,\epsilon)\to\lev{f}{f(x_0}$, with $\phi(0)=x_0$ we have $\inPro{\nabla f(x_0)}{\phi'(0)}$.
+\end{prop}
+\begin{proof}
+  Analogously to the proof of $D_v(x_0)=\inPro{\nabla f(x_0)}{v}$ we apply the chain rule suitable. Define $F:(-\epsilon, \epsilon)\to\RR, F(t):=f(\phi(t))$. Then, since $\phi$ only has values in $\lev{f}{x_0}$ it follows that $f$ is hte constant function $f(x_0)$ thus $F'(t)=0\qquad\forall t\in(-\epsilon,\epsilon)$. But the chain rule for $F=f\circ \phi$ gives $0=F'(t)=\lcccvector{\partDeriv{f}{x_1}(\phi(t))}{\ldots}{\partDeriv{f}{x_n}(\phi(t))}\lrrrvector{\phi_1'(t)}{\vdots}{\phi_n'(t)}=\inPro{\nabla f(\phi(t))}{\phi'(t)}$. In particular, for $t=0$, we obtain $F'(0)=0$. 
+\end{proof}
+\begin{rem}
+  We have seen: \begin{itemize}
+  	\item $\nabla f(x_0)=J_f(x_0)$ for $w=1$. 
+  	\item $D_vf(x_0)=\inPro{\nabla f(x_0)}{v}$.
+  \end{itemize}
+  In general, for $f:\Set{U}\to\RR^m$, we have $J_f(x_0)\cdot \lrrrvector{v_1}{\vdots}{v_n}=\ltttmatrix{\partDeriv{f_1}{x_1}(x_0)}{\ldots}{\partDeriv{f_1}{x_n}}{\cdots}{\vdots}{\vdots}{\partDeriv{f_m}{x_1}}{\ldots}{\partDeriv{f_m}{x_n}}$ for $v\in\RR^n$, $\Norm{v}=1$. 
+\end{rem}
+\begin{defn}[higher order derivative]
+  $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open. 
+  Now iff $f$ is partially differentiable, we say $f$ is $1$-times partially differentiable. If $f$ is $k$-times differentiable for $k\in\NN$, we call $f$ $k+1$-times partially differentiable iff the $k$-th partial derivatives are all partially differentiable. 
+\end{defn}
+\subsection*{Notation}
+$\forall \text{finite sequences}\fseq{i}{k}$ we write $\frac{\partial^k f}{\partial x_{i_1}\ldots\partial x_{i_n}}:=\frac{\partial}{\partial x_{i_1}}\left(\frac{\partial}{\partial x_{i_2}}\left(\ldots\left(\partDeriv{f}{x_{i_n}}\right)\right)\right)$.
+In particular for $k=2$, we have $\frac{\partial f}{\partial x_i\partial x_j}:=\frac{\partial}{\partial x_i}\left(\partDeriv{f}{x_j}\right)\qquad\forall i, j\in\upto{n}$. 
+
+\begin{prop}[Schwartz theorem]
+  If $f:\Set{U}\to\RR, \Set{U}\in\RR^n$ open, is $k$-times partially continuously differentiable (of class $C^k, k\in\NN$), then the order of taking partial derivatives in $\frac{\partial^k f}{\partial x_{i_1}\ldots\partial x_{i_n}}$ is irrelevant. I particular for $k=2$, we have $\frac{\partial^2 f}{\partial x_i\partial x_j}=\frac{\partial^2}{\partial x_j\partial x_i}, \forall i,j\in\upto{n}$.
+\end{prop}
+\begin{proof}[Proof sketch]
+  Apply mean value theorem twice after reducing to the case $n=2, k=2$.
+\end{proof}
+\begin{exam}\ 
+  \begin{enumerate}
+  	\item assignment 2
+  	\item "Counterexample partially differentiable, but not continuous" ($k=n=2$):
+  	Consider $f:\RR^2\to\RR, f(x,y):=\begin{cases}xy\frac{x^2-y^2}{x^2+y^2}\qquad(x,y)\neq 0\\0\qquad\qquad\text{otehrwise}\end{cases}$
+  	This is twice partially differentiable but not of class $C^2$, since the second order partial derivative is not continuous in $(0,0)$. One can check that $\partDeriv{^2f}{x\partial y}(0,0)\neq \partDeriv{^2f}{y\partial x}$.
+  \end{enumerate}
+\end{exam}
