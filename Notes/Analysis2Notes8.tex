@@ -1,0 +1,74 @@
+\section[The inverse function theorem]{The inverse function theorem}
+\paragraph{Motivation}
+In analysis of functions of one variable we had that
+\begin{thm}
+Given
+\begin{enumerate}
+\item $f: I \rightarrow \RR.\ I \subset \RR$ ($I$ being an open interval)
+\item $f$ is continuously differentiable on its domain (interval $I$)
+\item $f'(x) \neq 0\  \forall x \in I$ (i.e. $f$ is strictly increasing or decreasing)
+\end{enumerate}
+Then $f$ is invertible (bijective), its inverse $f^{-1}$ is also continuously differentiable and
+$$(f^{-1})'(f(x)) = \frac{1}{f'(x)}$$
+\end{thm}
+
+\begin{rem}
+  Can be derived as $$f^{-1}(f(x)) = x\ \underrightarrow{^\text{differentiate}}\ (f^{-1})'(f(x)).f'(x) = 1 \iff (f^{-1})'(f(x)) = \frac{1}{f'(x)}$$
+  \end{rem}
+
+\begin{figure}[hb]
+  \center
+\caption{Geometric idea of inverse function theorem}
+\includegraphics[scale=0.6]{figures/invfuncthm}
+\end{figure}
+
+We wish to generalize this statement to functions of multiple variables.
+\begin{ldefn}
+  We call $f|_u$ a restriction of $f$ at $u$; we only consider $f$ on the sub-domain $u$ and its image from $u$.
+\end{ldefn}
+
+\begin{thm}[Inverse function theorem for functions of several variables]
+  Given
+  \begin{enumerate}
+  \item $f: u \rightarrow \RR^n. u \subset \RR^n$ ($u$ is an open n-ball)
+  \item $f$ is differentiable on $u$, or, equivalently, $f|_u$ is differentiable
+  \item $Df: u \rightarrow L(\RR^n)$ is continuous.
+  \item $Df(x_0)$ is invertible $x_0 \in u$, or, equivalently, that the jacobean $J_f(x_0)$ is invertible in $M^{n\times n}$
+  \end{enumerate}
+  Then $\exists$ neighbohrhood $u_0 \subset u$ of $x_0$ so that $f|_{u_0}$ is bijective onto its image $v_0 = f(u_0)$ (invertible), the inverse $g = (f|_{u_0})^{-1}$ is also differentiable on $v_0$ and $\forall y = f(x) \in v_0$
+  $$Dg(y) = (Df(x))^{-1}$$
+  or, equivalently
+  $$J_g(y) = (J_f(x))^{-1}$$
+\end{thm}
+
+Proof sketch:
+\begin{enumerate}[I]
+\item $\exists u_0$ neighbourhood of $x_0$ such that $f|_{u_0}$ is bijective with inverse $g: v_0 \rightarrow u_0$, where $v_0 = f(u_0)$ (using \emph{Banach fixed point theorem}
+\item $v_0$ is open
+\item $g$ is differentiable on $v_0$ and $D_g(y) = (Df(g(y)))^{-1}, \forall y \in v_0$
+\end{enumerate}
+
+\begin{defn}
+  A function defined from metric space $(\Set{X}, d)$ to itself $\kappa: \Set{X} \rightarrow \Set{X}$ is called a contraction if
+  $$d(\kappa(x), \kappa(y)) < cd(x,y).\ \forall x, y \in \Set{X}.\ c \in [0, 1)$$
+\end{defn}
+
+\begin{rem}
+  Intuitive picture of a contraction $\kappa$ involves  a function where the preimage always changes faster than the image; graph would be `flatter' the smaller $c$ is.
+\end{rem}
+
+\begin{ldefn}
+  A complete metric space is a metric space where all cauchy sequences converge. i.e. $$((x_p) \in \Set{X} \implies \forall \epsilon > 0 . \ \exists N_\epsilon \in \NN : d(x_p, x_q) < \epsilon .\  \forall p, q \geq N_\epsilon) \implies x_p \underrightarrow{^{p\rightarrow \infty}} x \in \Set{X} $$
+\end{ldefn}
+
+\begin{thm}[Banach fixed point theorem]
+  Let $(\Set{X}, d)$ be a complete metric space. If $\kappa: \Set{X} \rightarrow \Set{X}$ is a contraction mapping, then $\kappa$ has a unique fixed point $x \in \Set{X}$, i.e. a point $x \in \Set{X}$ where $\kappa(x) = x$.
+\end{thm}
+
+\begin{rem}
+  Intuitive picture of Banach fixed point theorem: because $\kappa$ is a contraction (the preimage $x$ is always changing faster than the image $\kappa(x)$), you know that somewhere as you're moving towards either its maximal point (e.g: $+\infty$) or minimal point (e.g: $-\infty$) the value of $x$ will catch up to $\kappa(x)$
+\end{rem}
+
+\begin{proof}
+  kj
+\end{proof}
