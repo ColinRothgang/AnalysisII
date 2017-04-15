@@ -70,5 +70,43 @@ Proof sketch:
 \end{rem}
 
 \begin{proof}
-  kj
+  \begin{enumerate}
+  \item Take some $x_1 \in \Set{X}$
+  \item Define sequence $(x_p)$ inductively such that $x_{p+1} = \kappa^p(x_1).\ p \in \NN$
+  \item Define inequality
+    $$d(x_{p+1}, x_p) \leq c^{p-1}d(x_2, x_1).\ p \in \NN.\ c \in [0, 1) \:\:\:\: \text{*}$$ 
+    where $c$ is the contraction constant for $\kappa$. 
+  \item Proving above inequality by induction.
+    \par Base case (p = k = 1):
+    $$d(x_{1+1}, x_1) \leq c^{1-1}d(x_2, x_1)$$
+    $$d(x_2, x_1) \leq (c^0)d(x_2, x_1) \implies d(x_2, x_1) = d(x_2, x_1)$$
+    \par Inductive step (p = k + 1)
+    $$d(x_{k+2}, x_{k+1}) = d(\kappa(x_{k+1}), \kappa(x_{k}))$$
+    Since $\kappa$ is a contraction
+    $$ = d(\kappa(x_{k+1}), \kappa(x_k)) \leq cd(x_{k+1}, x_k)$$
+    Activate induction
+    $$ \leq cc^{k-1}d(x_2, x_1) = c^kd(x_2, x_1)$$
+  \item We will show the sequence $(x_p)$ is cauchy. Let $m, n \in \NN.\ m > n$
+  \item By triangle inequality
+    $$d(x_m, x_n) \leq d(x_m, x_{m-1}) + d(x_{m-1}, x_{m-2}) + \dots + d(x_{n+1}, x_n)$$
+    By inequality (*)
+    $$\phantom{d(x_m, x_n) } \leq c^{m-2}d(x_2, x_1)+c^{m-3}d(x_2, x_1)+\dots + c^{n-1}d(x_2, x_1)$$
+    $$\phantom{d(x_m, x_n) } = c^{n-1}d(x_2, x_1)\sum_{k=0}^{m-n-2}c^k$$
+    $$\phantom{d(x_m, x_n) } \leq c^{n-1}d(x_2, x_1)\sum_{k=0}^{\infty}c^k = c^{n-1}d(x_2, x_1)\frac{1}{1-c}$$
+    So finally
+    $$d(x_m, x_n) = c^{n-1}\frac{d(x_2, x_1)}{1-c}$$
+  \item Let $\epsilon = c^{N-1}\frac{d(x_2, x_1)}{1-c} > 0 \iff N = \lceil \log_c(\frac{\epsilon(1-c)}{d(x_2, x_1)})\rceil + 1$
+  \item $\epsilon$ is arbitrary, so the sequence $(x_p)$ is cauchy. And since the metric space it is defined on, $(\Set{X}, d)$, is complete, it converges to some $x^* \in \Set{X}$.
+  \item $\kappa$ is a contraction $\implies$ Lipschitz (with constant $< 1$) $\iff$ Lipschitz continuous. Thus we can have
+    $$\kappa(\lim_{p\rightarrow \infty}x_p) = \lim_{p\rightarrow \infty}x_{p+1}$$
+    $$\kappa(x^*) = x^*$$
+    So $x^*$ is a fixed point of $\kappa$
+  \item Suppose there exists another $y \in \Set{X}$ such that $\kappa(y) = y$, then
+    $$0 \leq d(x^*, y) = d(\kappa(x^*), \kappa(y)) \leq cd(x^*, y)$$
+    Since $|c| < 1$, $d(x^*, y) = 0$
+    $$0 \leq d(\kappa(x^*), \kappa(y)) \leq 0$$
+    $$x^* = \kappa(x^*) = \kappa(y) = y$$
+    So $x^*$ is the unique fixed point.
+  \end{enumerate}
 \end{proof}
+
