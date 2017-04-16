@@ -43,7 +43,7 @@ We wish to generalize this statement to functions of multiple variables.
 
 Proof sketch:
 \begin{enumerate}[I]
-\item $\exists u_0$ neighbourhood of $x_0$ such that $f|_{u_0}$ is bijective with inverse $g: v_0 \rightarrow u_0$, where $v_0 = f(u_0)$ (using \emph{Banach fixed point theorem}
+\item $\exists u_0$ neighbourhood of $x_0$ such that $f|_{u_0}$ is bijective with inverse $g: v_0 \rightarrow u_0$, where $v_0 = f(u_0)$ (using \emph{Banach fixed point theorem})
 \item $v_0$ is open
 \item $g$ is differentiable on $v_0$ and $D_g(y) = (Df(g(y)))^{-1}, \forall y \in v_0$
 \end{enumerate}
@@ -110,3 +110,49 @@ Proof sketch:
   \end{enumerate}
 \end{proof}
 
+
+\begin{proof}[The inverse function theorem proof]
+  \par :
+  \begin{enumerate}[I]
+  \item `$\exists u_0$ neighbourhood of $x_0$ such that $f|_{u_0}$ is bijective with inverse $g: v_0 \rightarrow u_0$, where $v_0 = f(u_0)$`
+    \begin{enumerate}
+    \item $A = Df(x_0) \in L(\RR^n)$ is invertible (by assumption), $\implies ||A|| \neq 0 \iff ||A^{-1}|| \neq 0$. Define
+      $$\lambda = \frac{1}{2||A^{-1}||} > 0$$
+    \item The differential map $Df: u \rightarrow L(\RR^n)$ is continuous in $x_0$ (by assumption); there exists (for the previously defined $\lambda > 0$) an open neighbourhood $u_0 \subset u$ of $x_0$ so that
+      $$||Df(x) - Df(x_0)|| < \lambda \: \forall x \in u_0 \:\:\:\:\: (1)$$
+    \item $\forall y \in \RR^n$ define a map $\kappa = \kappa_y: u \rightarrow \RR^n$ by
+      $$\kappa(x) = x + A^{-1}(y - f(x)) \:\:\:\:\: (2)$$
+      \begin{rem}
+        Contrary to what the notation suggests, we do not have $f(x) = y$ always; this is the case exactly when $x$ is a fixed point of $\kappa$. Note also here that $\kappa$ is not a contraction yet either, but the plan to show that $\kappa$ is a contraction.
+      \end{rem}
+    \item Finding the derivative of $\kappa$ by the chain rule
+      $$D\kappa(x) = I + A^{-1}\circ(-Df(x)) = I - A^{-1}\circ Df(x) = A^{-1} \circ(A-Df(x))$$
+    \item By properties of the operator norm we get $\forall x \in u_0$
+      $$||D\kappa(x)|| = ||A^{-1} \circ(A-Df(x))|| \leq ||A^{-1}||\:||A-Df(x)||$$
+      recall that $A = Df(x_0)$, and by inequality $(1)$ is
+      $$\phantom{||D\kappa(x)||} < ||A^{-1}||\lambda = ||A^{-1}||\frac{1}{2||A^{-1}||}=\frac{1}{2} < 1$$
+    \item By proposition, since the differential is bounded $\implies$ map is Lipschitz. We have that $||\kappa(u) - \kappa(v)|| \leq \frac{1}{2}||u-v||, \:\:\forall u,v \in u_0 \implies $ $\kappa$ is a contraction.
+    \item By Banach fixed point theorem, $\forall y \in \RR^n$, there is at most one fixed point $x\in u_0$ of $\kappa = \kappa_y \implies f(x) = y$. In particular, $\forall y \in v_0 = f(u_0)$ there exists exactly one \footnote{Banach fixed point theorem says that this implies that there exists \emph{at most one} x, but I think it's exactly one since it works for all $y$.} $x \in u_0$ with $f(x) = y \implies f|_{u_0}$ is injective $\implies f|_{u_0}$ is bijective.
+    \end{enumerate}
+    
+  \item `$v_0$ is open`
+    \begin{enumerate}
+    \item Let $y_1 \in v_0$ and let $x_1 = f^{-1}(y_1)$.
+    \item Since $u_0$ is open, $\exists \rho > 0$ so that closed ball $\overline{B(x_1, \rho)} = \{u\in \RR^n:||x_1-u|| \leq \rho\} \subset u_0$
+    \item We will show that $B(y_1, \lambda \rho) \subset v_0$ which would imply that $v_0$ is open; we need to prove that
+      $$||y - y_1|| < \lambda \rho = \frac{\rho}{2||A^{-1}||} \implies y\in v_0 = f(u_0)$$
+    \item Let $y \in B(y_1, \lambda \rho)$. For $\kappa = \kappa_y$, we can have
+      $$||\kappa(x_1) - x_1|| = ||A^{-1}(y-f(x_1))||$$
+      by property of the operator norm is
+      $$\leq ||A^{-1}||\ ||y-f(x_1)|| < ||A^{-1}||\lambda \rho = ||A^{-1}||\frac{\rho}{2||A^{-1}||} = \rho / 2 $$
+      thus, $\forall x \in \overline{B(x_1, \rho)} := \overline{B}$,
+      $$||\kappa(x)-x_1|| = ||\kappa(x) + (-\kappa(x_1) + \kappa(x_1)) - x_1||$$
+      by triangle inequality
+      $$\leq ||\kappa(x) - \kappa(x_1)|| + ||\kappa(x_1) - x_1|| \leq \frac{\rho}{2} + \frac{\rho}{2} = \rho$$
+    \item But this means that $\kappa(\overline{B}) \subset \overline{B} \implies \kappa$ is a contraction of a complete metric space $\overline{B}$ with the euclidean metric.
+    \item By Banach fixed point theorem, $\exists ! x \in \overline{B} : \kappa(x) = x \iff f(x) = y \iff y \in v_0 \implies v_0$ is open.
+    \end{enumerate}
+  \item `$g$ is differentiable on $v_0$ and $D_g(y) = (Df(g(y)))^{-1}, \forall y \in v_0$`
+ 
+  \end{enumerate}
+\end{proof}
