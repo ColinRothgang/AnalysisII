@@ -74,7 +74,10 @@ Proof sketch:
   \item Take some $x_1 \in \Set{X}$
   \item Define sequence $(x_p)$ inductively such that $x_{p+1} = \kappa^p(x_1).\ p \in \NN$
   \item Define inequality
-    $$d(x_{p+1}, x_p) \leq c^{p-1}d(x_2, x_1).\ p \in \NN.\ c \in [0, 1) \:\:\:\: \text{*}$$ 
+    \begin{equation}
+      \label{l8e0}
+      d(x_{p+1}, x_p) \leq c^{p-1}d(x_2, x_1).\ p \in \NN.\ c \in [0, 1)
+    \end{equation}
     where $c$ is the contraction constant for $\kappa$. 
   \item Proving above inequality by induction.
     \par Base case (p = k = 1):
@@ -89,7 +92,7 @@ Proof sketch:
   \item We will show the sequence $(x_p)$ is cauchy. Let $m, n \in \NN.\ m > n$
   \item By triangle inequality
     $$d(x_m, x_n) \leq d(x_m, x_{m-1}) + d(x_{m-1}, x_{m-2}) + \dots + d(x_{n+1}, x_n)$$
-    By inequality (*)
+    By inequality (\ref{l8e0})
     $$\phantom{d(x_m, x_n) } \leq c^{m-2}d(x_2, x_1)+c^{m-3}d(x_2, x_1)+\dots + c^{n-1}d(x_2, x_1)$$
     $$\phantom{d(x_m, x_n) } = c^{n-1}d(x_2, x_1)\sum_{k=0}^{m-n-2}c^k$$
     $$\phantom{d(x_m, x_n) } \leq c^{n-1}d(x_2, x_1)\sum_{k=0}^{\infty}c^k = c^{n-1}d(x_2, x_1)\frac{1}{1-c}$$
@@ -119,9 +122,15 @@ Proof sketch:
     \item $A = Df(x_0) \in L(\RR^n)$ is invertible (by assumption), $\implies ||A|| \neq 0 \iff ||A^{-1}|| \neq 0$. Define
       $$\lambda = \frac{1}{2||A^{-1}||} > 0$$
     \item The differential map $Df: u \rightarrow L(\RR^n)$ is continuous in $x_0$ (by assumption); there exists (for the previously defined $\lambda > 0$) an open neighbourhood $u_0 \subset u$ of $x_0$ so that
-      $$||Df(x) - Df(x_0)|| < \lambda \: \forall x \in u_0 \:\:\:\:\: (1)$$
+      \begin{equation}
+        \label{l8e1}
+        ||Df(x) - Df(x_0)|| < \lambda \: \forall x \in u_0
+        \end{equation}
     \item $\forall y \in \RR^n$ define a map $\kappa = \kappa_y: u \rightarrow \RR^n$ by
-      $$\kappa(x) = x + A^{-1}(y - f(x)) \:\:\:\:\: (2)$$
+      \begin{equation}
+        \label{l8e2}
+        \kappa(x) = x + A^{-1}(y - f(x))
+      \end{equation}
       \begin{rem}
         Contrary to what the notation suggests, we do not have $f(x) = y$ always; this is the case exactly when $x$ is a fixed point of $\kappa$. Note also here that $\kappa$ is not a contraction yet either, but the plan to show that $\kappa$ is a contraction.
       \end{rem}
@@ -129,7 +138,7 @@ Proof sketch:
       $$D\kappa(x) = I + A^{-1}\circ(-Df(x)) = I - A^{-1}\circ Df(x) = A^{-1} \circ(A-Df(x))$$
     \item By properties of the operator norm we get $\forall x \in u_0$
       $$||D\kappa(x)|| = ||A^{-1} \circ(A-Df(x))|| \leq ||A^{-1}||\:||A-Df(x)||$$
-      recall that $A = Df(x_0)$, and by inequality $(1)$ is
+      recall that $A = Df(x_0)$, and by inequality (\ref{l8e1}) is
       $$\phantom{||D\kappa(x)||} < ||A^{-1}||\lambda = ||A^{-1}||\frac{1}{2||A^{-1}||}=\frac{1}{2} < 1$$
     \item By proposition, since the differential is bounded $\implies$ map is Lipschitz. We have that $||\kappa(u) - \kappa(v)|| \leq \frac{1}{2}||u-v||, \:\:\forall u,v \in u_0 \implies $ $\kappa$ is a contraction.
     \item By Banach fixed point theorem, $\forall y \in \RR^n$, there is at most one fixed point $x\in u_0$ of $\kappa = \kappa_y \implies f(x) = y$. In particular, $\forall y \in v_0 = f(u_0)$ there exists exactly one \footnote{Banach fixed point theorem says that this implies that there exists \emph{at most one} x, but I think it's exactly one since it works for all $y$.} $x \in u_0$ with $f(x) = y \implies f|_{u_0}$ is injective $\implies f|_{u_0}$ is bijective.
@@ -153,6 +162,49 @@ Proof sketch:
     \item By Banach fixed point theorem, $\exists ! x \in \overline{B} : \kappa(x) = x \iff f(x) = y \iff y \in v_0 \implies v_0$ is open.
     \end{enumerate}
   \item `$g$ is differentiable on $v_0$ and $D_g(y) = (Df(g(y)))^{-1}, \forall y \in v_0$`
- 
+    \begin{enumerate}
+    \item Let $g = (f|_{u_0})^{-1}$
+    \item Since $f|_{u_0}$ is bijective, we have a one to one correspondance
+      $$v_0 \rightarrow
+      \begin{cases}
+        y \phantom{+ k}\:\:\:\leftrightarrow\:\:\: x = g(y) \in u_0 \\
+        y + k \:\:\leftrightarrow\:\: x + h = g(y+k) \in u_0 \\
+      \end{cases}
+      $$
+    \item With $\kappa=\kappa_y$ defined in (\ref{l8e2}), and knowing $f(x) = y, f(x+h) = y+k$, we now have
+      $$\kappa(x+h) - \kappa(x) = x + h + A^{-1}(y-f(x+h))-x-A^{-1}(y-f(x))$$
+      $$\phantom{\kappa(x+h) - \kappa(x)} =h+A^{-1}(f(x)-f(x+h))=h-A^{-1}k$$
+    \item We can have
+      $$||h|| = ||x + h - x||$$
+      since $\kappa$ is a contraction with constant $\frac{1}{2}$, it is
+      $$\geq 2||\kappa(x+h)-\kappa(x)|| = 2||h-A^{-1}k||$$
+    \item On the other hand
+      $$||h|| = ||h-A^{-1}k + A^{-1}k||$$
+      by triangle inequality is
+      $$\leq ||h-A^{-1}k|| + ||A^{-1}k||$$
+      by the previous inequality is
+      $$\leq \frac{||h||}{2}+||A^{-1}k||$$
+    \item Thus, $||A^{-1}k|| \geq \frac{||h||}{2}$ and finally
+      $$||h|| \leq 2||A^{-1}k|| \leq 2||A^{-1}||\ ||k|| = \frac{2||k||}{2\lambda}$$
+      \begin{equation}
+        \label{l8e3}
+        \implies ||h|| \leq \frac{||k||}{\lambda}
+      \end{equation}
+    \item We need to show that $Df(x)$ is invertible. Recall from property 6 of the operator norm that if $||B - A|| < \frac{1}{||A^{-1}||} \implies B$ is invertible. We have by inequality (\ref{l8e1}) (recall $A = Df(x_0)$)
+      $$||Df(x) - A|| < \lambda = \frac{1}{2||A^{-1}||} < \frac{1}{||A^{-1}||}$$
+      $implies Df(x)$ is invertible.
+    \item Now to identify the differential of $g$ in $y=f(x)$, let $B=(Df(x))^{-1}$ (note $h = Ih = (BDf(x))h$)
+      $$g(y+k) - g(y) - Bk = x+h-x-Bk = h-B(y+k-y)$$
+      $$\phantom{g(y+k) - g(y) - Bk}= BDf(x)h - B(f(x+h) - f(x)) = -B(f(x+h)-f(x)-Df(x)h)$$
+    \item Then $g$ is differentiable if following limit equals $0$ as $k \rightarrow 0$
+      $$0 \leq \frac{||g(y+k) - g(y) - Bk||}{|k|} = \frac{1}{||k||}||B(f(x+h)-f(x)-Df(x)h)|| $$
+      $$\leq \frac{||B||}{||k||}||f(x+h)-f(x)-Df(x)h||$$
+      by inequality (\ref{l8e3}) is
+      $$\leq \frac{||B||}{\lambda}\frac{f(x+h)-f(x)-Df(x)h}{||h||}$$
+    \item As $k\rightarrow 0, h\rightarrow 0$ by inequality (\ref{l8e3}), and as $f$ is differentiable $\frac{||B||}{||k||}||f(x+h)-f(x)-Df(x)h||\ \underrightarrow{^{h\rightarrow 0}}\ 0$. $\frac{||B||}{\lambda}$ is a constant (by definition, $\lambda > 0$).
+      So, finally,
+      $$\lim_{k\rightarrow 0}\frac{||g(y+k) - g(y) - Bk||}{|k|} = 0$$
+      thus $g$ is differentiable on $v_0$, and the differential is $B = (Df(x))^{-1}$.
+    \end{enumerate}
   \end{enumerate}
 \end{proof}
