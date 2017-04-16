@@ -208,3 +208,13 @@ Proof sketch:
     \end{enumerate}
   \end{enumerate}
 \end{proof}
+
+\begin{exam} of a map that is locally invertable in every point but not globally injective is a map of polar coordinates in the plane $f:(0,\infty) \times \RR \rightarrow \RR^2$ defined by $f(r, \theta) = \lrrvector{r \cos\theta}{r \sin\theta}$
+  Take $r > 0, \theta \in \RR$, then $J_f(r, \theta) = \lttmatrix{\cos\theta}{-r\sin\theta}{\sin\theta}{r\cos\theta}$.
+  $\det{J_f} = r\cos^2\theta + r\sin^2\theta \implies f$ is locally invertible in $(r, \theta)$
+  But $f(r,\theta) = f(r, \theta + 2\pi)$, so $f$ is not injective.
+\end{exam}
+
+\begin{rem}
+  One can strengthen the statement of the theorem by assuming $f$ is continuosly differentiable on all of $u$, then one can show (using property 7 of operator norm) that $g$ is also continuously differentiable. \footnote{Refer to Rudin}
+\end{rem}
