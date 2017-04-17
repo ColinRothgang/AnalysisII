@@ -9,7 +9,7 @@
   Let $\Set{U}\to\RR, \Set{U}\subset\RR^n$ open be some function and consider $l\in\RR$. The level set (also called contour-line, \ldots) of $f$ at level $l$ is defined as $\Set{N}_f(l):=\{x\in\Set{U}:f(x)=l\}$. 
 \end{defn}
 \begin{prop}
-  Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open be differentaible on $w$. Then, $\nabla f(x)$ with  is orthogonol to $\lev{f}{f(x_0}$ i.e. for any continuous differentiable mapping $\phi:(-\epsilon,\epsilon)\to\lev{f}{f(x_0}$, with $\phi(0)=x_0$ we have $\inPro{\nabla f(x_0)}{\phi'(0)}$.
+  Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open be differentiable on $w$. Then, $\nabla f(x)$ with  is orthogonal to $\lev{f}{f(x_0}$ i.e. for any continuous differentiable mapping $\phi:(-\epsilon,\epsilon)\to\lev{f}{f(x_0}$, with $\phi(0)=x_0$ we have $\inPro{\nabla f(x_0)}{\phi'(0)}$.
 \end{prop}
 \begin{proof}
   Analogously to the proof of $D_v(x_0)=\inPro{\nabla f(x_0)}{v}$ we apply the chain rule suitable. Define $F:(-\epsilon, \epsilon)\to\RR, F(t):=f(\phi(t))$. Then, since $\phi$ only has values in $\lev{f}{x_0}$ it follows that $f$ is hte constant function $f(x_0)$ thus $F'(t)=0\qquad\forall t\in(-\epsilon,\epsilon)$. But the chain rule for $F=f\circ \phi$ gives $0=F'(t)=\lcccvector{\partDeriv{f}{x_1}(\phi(t))}{\ldots}{\partDeriv{f}{x_n}(\phi(t))}\lrrrvector{\phi_1'(t)}{\vdots}{\phi_n'(t)}=\inPro{\nabla f(\phi(t))}{\phi'(t)}$. In particular, for $t=0$, we obtain $F'(0)=0$. 
