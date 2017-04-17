@@ -1,14 +1,14 @@
 \section[The inverse function theorem]{The inverse function theorem}
 \paragraph{Motivation}
-In analysis of functions of one variable we had that
+In analysis of functions in one variable we had that
 \begin{thm}
 Given
 \begin{enumerate}
-\item $f: I \rightarrow \RR.\ I \subset \RR$ ($I$ being an open interval)
-\item $f$ is continuously differentiable on its domain (interval $I$)
-\item $f'(x) \neq 0\  \forall x \in I$ (i.e. $f$ is strictly increasing or decreasing)
+  \item $f: I \rightarrow \RR.\ I \subset \RR$ ($I$ being an open interval)
+  \item $f$ is continuously differentiable on its domain $I$
+  \item $f'(x) \neq 0\  \forall x \in I$ (i.e. $f$ is strictly increasing or decreasing)
 \end{enumerate}
-Then $f$ is invertible (bijective), its inverse $f^{-1}$ is also continuously differentiable and
+Then $f$ is invertible (injective), its inverse $f^{-1}$ is also continuously differentiable and
 $$(f^{-1})'(f(x)) = \frac{1}{f'(x)}$$
 \end{thm}
 
@@ -24,15 +24,16 @@ $$(f^{-1})'(f(x)) = \frac{1}{f'(x)}$$
 
 We wish to generalize this statement to functions of multiple variables.
 \begin{ldefn}
-  We call $f|_u$ a restriction of $f$ at $u$; we only consider $f$ on the sub-domain $u$ and its image from $u$.
+  We call $f|_u$ a restriction of $f$ at $u$; we only consider $f$ on the subset $u$ of the domain and its image from $u$.
+  More precisely, using the definition of functions as certain subsets of cartesian products, we define $f|_u:=\{(x,y)\in f$ s.t. $x\in u\}$.
 \end{ldefn}
 
 \begin{thm}[Inverse function theorem for functions of several variables]
   Given
   \begin{enumerate}
-  \item $f: u \rightarrow \RR^n. u \subset \RR^n$ ($u$ is an open n-ball)
+  \item $f: u \to \RR^n. u \subset \RR^n$ ($u$ is an open n-ball)
   \item $f$ is differentiable on $u$, or, equivalently, $f|_u$ is differentiable
-  \item $Df: u \rightarrow L(\RR^n)$ is continuous.
+  \item $Df: u \to L(\RR^n)$ is continuous.
   \item $Df(x_0)$ is invertible $x_0 \in u$, or, equivalently, that the jacobean $J_f(x_0)$ is invertible in $M^{n\times n}$
   \end{enumerate}
   Then $\exists$ neighbohrhood $u_0 \subset u$ of $x_0$ so that $f|_{u_0}$ is bijective onto its image $v_0 = f(u_0)$ (invertible), the inverse $g = (f|_{u_0})^{-1}$ is also differentiable on $v_0$ and $\forall y = f(x) \in v_0$
