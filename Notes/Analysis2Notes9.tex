@@ -13,13 +13,13 @@ $$(f^{-1})'(f(x)) = \frac{1}{f'(x)}$$
 \end{thm}
 
 \begin{rem}
-  Can be derived as $$f^{-1}(f(x)) = x\ \underrightarrow{^\text{differentiate}}\ (f^{-1})'(f(x)).f'(x) = 1 \iff (f^{-1})'(f(x)) = \frac{1}{f'(x)}$$
+  Can be derived as $$f^{-1}(f(x)) = x\ \underrightarrow{^\text{differentiate}}\ (f^{-1})'(f(x)).f'(x) = 1 \Leftrightarrow (f^{-1})'(f(x)) = \frac{1}{f'(x)}$$
   \end{rem}
 
-\begin{figure}[hb]
+\begin{figure}[ht] %Did you really meant hb?
   \center
-\caption{Geometric idea of inverse function theorem}
-\includegraphics[scale=0.6]{figures/invfuncthm}
+  \includegraphics[scale=0.6]{figures/invfuncthm}
+  \caption{Geometric idea of inverse function theorem}
 \end{figure}
 
 We wish to generalize this statement to functions of multiple variables.
@@ -29,6 +29,7 @@ We wish to generalize this statement to functions of multiple variables.
 \end{ldefn}
 
 \begin{thm}[Inverse function theorem for functions of several variables]
+  \label{thm:InvFT}
   Given
   \begin{enumerate}
   \item $f: u \to \RR^n. u \subset \RR^n$ ($u$ is an open n-ball)
@@ -42,12 +43,17 @@ We wish to generalize this statement to functions of multiple variables.
   $$J_g(y) = (J_f(x))^{-1}$$
 \end{thm}
 
-Proof sketch:
+\subsubsection*{Proof sketch:}
+We will show this in three major steps: 
 \begin{enumerate}[I]
 \item $\exists u_0$ neighbourhood of $x_0$ such that $f|_{u_0}$ is bijective with inverse $g: v_0 \rightarrow u_0$, where $v_0 = f(u_0)$ (using \emph{Banach fixed point theorem})
 \item $v_0$ is open
 \item $g$ is differentiable on $v_0$ and $D_g(y) = (Df(g(y)))^{-1}, \forall y \in v_0$
 \end{enumerate}
+\ \\
+
+Firstly, we need to define some preliminaries and prove the Banach fixed point theorem. 
+
 
 \begin{defn}
   A function defined from metric space $(\Set{X}, d)$ to itself $\kappa: \Set{X} \rightarrow \Set{X}$ is called a contraction if
@@ -116,12 +122,12 @@ Proof sketch:
 \end{proof}
 
 
-\begin{proof}[The inverse function theorem proof]
-  \par :
+\begin{proof}[Proof of the inverse function theorem]
+  \par:
   \begin{enumerate}[I]
   \item `$\exists u_0$ neighbourhood of $x_0$ such that $f|_{u_0}$ is bijective with inverse $g: v_0 \rightarrow u_0$, where $v_0 = f(u_0)$`
     \begin{enumerate}
-    \item $A = Df(x_0) \in L(\RR^n)$ is invertible (by assumption), $\Rightarrow ||A|| \neq 0 \iff ||A^{-1}|| \neq 0$. Define
+    \item $A = Df(x_0) \in L(\RR^n)$ is invertible (by assumption), $\Rightarrow ||A|| \neq 0 \Leftrightarrow ||A^{-1}|| \neq 0$. Define
       $$\lambda = \frac{1}{2||A^{-1}||} > 0$$
     \item The differential map $Df: u \rightarrow L(\RR^n)$ is continuous in $x_0$ (by assumption); there exists (for the previously defined $\lambda > 0$) an open neighbourhood $u_0 \subset u$ of $x_0$ so that
       \begin{equation}
@@ -161,7 +167,7 @@ Proof sketch:
       by triangle inequality
       $$\leq ||\kappa(x) - \kappa(x_1)|| + ||\kappa(x_1) - x_1|| \leq \frac{\rho}{2} + \frac{\rho}{2} = \rho$$
     \item But this means that $\kappa(\overline{B}) \subset \overline{B} \Rightarrow \kappa$ is a contraction of a complete metric space $\overline{B}$ with the euclidean metric.
-    \item By Banach fixed point theorem, $\exists ! x \in \overline{B} : \kappa(x) = x \iff f(x) = y \iff y \in v_0 \Rightarrow v_0$ is open.
+    \item By Banach fixed point theorem, $\exists ! x \in \overline{B} : \kappa(x) = x \Leftrightarrow f(x) = y \Leftrightarrow y \in v_0 \Rightarrow v_0$ is open.
     \end{enumerate}
   \item `$g$ is differentiable on $v_0$ and $D_g(y) = (Df(g(y)))^{-1}, \forall y \in v_0$`
     \begin{enumerate}
@@ -196,8 +202,10 @@ Proof sketch:
       $$||Df(x) - A|| < \lambda = \frac{1}{2||A^{-1}||} < \frac{1}{||A^{-1}||}$$
       $\Rightarrow Df(x)$ is invertible.
     \item Now to identify the differential of $g$ in $y=f(x)$, let $B=(Df(x))^{-1}$ (note $h = Ih = (BDf(x))h$)
-      $$g(y+k) - g(y) - Bk = x+h-x-Bk = h-B(y+k-y)$$
-      $$\phantom{g(y+k) - g(y) - Bk}= BDf(x)h - B(f(x+h) - f(x)) = -B(f(x+h)-f(x)-Df(x)h)$$
+      \begin{align*}
+      	g(y+k) - g(y) - Bk =& x+h-x-Bk = h-B(y+k-y)\\
+      	=&BDf(x)h - B(f(x+h) - f(x)) \\=& -B(f(x+h)-f(x)-Df(x)h)
+      \end{align*}
     \item Then $g$ is differentiable if following limit equals $0$ as $k \rightarrow 0$
       $$0 \leq \frac{||g(y+k) - g(y) - Bk||}{|k|} = \frac{1}{||k||}||B(f(x+h)-f(x)-Df(x)h)|| $$
       $$\leq \frac{||B||}{||k||}||f(x+h)-f(x)-Df(x)h||$$
