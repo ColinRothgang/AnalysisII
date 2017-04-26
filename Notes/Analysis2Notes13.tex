@@ -1,0 +1,44 @@
+\section{local extrema with constraints}
+Lagrange multipliers: $\nabla f=\lambda\nabla g$\\
+\subsubsection*{Idea:}
+Imagine we are running up a mountain;\\
+Q: What happens in the point where the trajectory has a local maximum?\\
+A: The trajectory is parallel to the level lines in that local maximum
+\begin{exam}
+  Look at the ``mathematical mountain'', say the graph of the function $f:\RR^2\to\RR$, $F(x,y):=16-x^2-4y^2$. Now consider the ``trajectory'' $r:(0,\infty)\to\RR^2, r(t):=\lrrvector{t}{\frac{1}{2}}$. We will look for a $t_0>0$ s.t. $f(r(t_0))$ has a local maximum and verify this statement, in the following steps:
+  \begin{enumerate}[(i)]
+  	\item Find all $t_0\st h:=f\circ r:(0,\infty)\to\RR$ has a local extremum (we will actually only check for a critical point) at $t_0$.
+  	\item Check that $\nabla f(r(t_0))\perp r'(t_0)$
+  	\item[(ii')] We already know that $\nabla f$ is orthogonal to the level set of $f$ i.e. $\nabla f(r(t_0))\perp N_f(f(r(t_0)))$, but we want to check it anyway
+  	\item Write path $r$ ``implicitly'' as level set of $g:(0,\infty)^2\to\RR$ and check $\nabla f(r(t_0))\perp N_g(r(t_0))=N_g(0)$
+  	\item Find $\lambda\in\RR\setminus\{0\} \st \nabla f(r(t_0))=\lambda\nabla g(r(t_0))$.
+  \end{enumerate}
+  \begin{enumerate}[(I)]
+  	\item $h:\;(0,\infty)\to\RR,\; h(f)=f(r(t))=f(\lccvector{t}{\frac{1}{t}})=16-t^2-\frac{4}{t^2}$. Therefore, $h'(t)=-2t+\frac{8}{t^3}\Rightarrow (f$ critical$)\Rightarrow-2t=\frac{8}{t^3}\Rightarrow t=\pm\sqrt{2}\follows{$t\in(0,\infty)$}t=\sqrt{2}$. It can easily be verified, that this critical point corresponds to a local maximum. 
+  	\item $\nabla f(x,y)=\lrrvector{-2x}{-8y}, \nabla f(r(t_0))=f\left(\lrrvector{\sqrt{2}}{\frac{1}{\sqrt{2}}}\right)=\lrrvector{-2\sqrt{2}}{-4\sqrt{2}}$. The velocity vector of $r$ in $t_0$ is:
+  	$r'(t)=\lrrvector{1}{-\frac{1}{t^2}}\Rightarrow r'(t_0)=r'(\sqrt{2})=\lrrvector{1}{-\frac{1}{2}}$. Is $\lrrvector{-2\sqrt{2}}{-4\sqrt{2}}\perp\lrrvector{1}{-\frac{1}{2}}$?
+  	Yes, since $\inPro{\lrrvector{-2\sqrt{2}}{-4\sqrt{2}}}{\lrrvector{1}{-\frac{1}{2}}}=-2\sqrt{2}+2\sqrt{2}=0$.
+  	\item[(II')] $f(r(t_0))=h(t_0)=h(\sqrt{2})=12$. We yield: $N_f(12)=\{(x,y)\in\RR^2\st f(x,y)=12\}$, the equation of an ellipse $16-x^2-4y^2=12\Leftrightarrow x^2+4y^2=4\Rightarrow r(\sqrt{2})=r(t_0)$.\par 
+  	Now we only need to check: $\nabla f(r(t_0))\perp$ to the velocity vector of $f$ on the ellipse $x^2+4y^2=4$ at some point. We can calculate this velocity vector $\gamma'$ and find the desired point: 
+  	\begin{align*}
+  	  y^2=\frac{4x^2}{4}\Rightarrow y=\sqrt{1-\frac{x2}{4}}, \\\Rightarrow&\gamma(t):=\lrrvector{1}{\sqrt{1-\frac{x^2}{4}}},\\ \Rightarrow&\gamma'(t)=\lrrvector{1}{\frac{1}{2\sqrt{1-\frac{t^2}{4}}\left(-\frac{t}{2}\right)}}=\lrrvector{1}{-\frac{t}{4\sqrt{1-\frac{t^2}{4}}}}\\\Rightarrow& \gamma'(\frac{1}{2})=\lrrvector{1}{-\frac{\sqrt{2}}{4\sqrt{1-\frac{1}{2}}}}=\lrrvector{1}{-\frac{1}{2}}.
+  	\end{align*}
+  	We can now check:
+  	$$\inPro{-2\sqrt{2}}{-4\sqrt{2}}.$$
+  	\item Rewriting $r$ we obtain the equation of a hyperbola $xy=1$, so we choose $g:(0,\infty)^2\to\RR, g(x,y)=xy-1$. Then, $N_g(0)$ is simply $r((0,\infty))$. Thus, $\nabla g(x,y)=\lrrvector{y}{x}, \nabla g(r(t_0))=\lrrvector{\frac{1}{\sqrt{2}}}{\sqrt{2}}$ and we only need to check that $\nabla g(r(t_0))\perp r'(t_0)$:
+  	$$\inPro{\lrrvector{\frac{1}{\sqrt{2}}}{\sqrt{2}}}{\lrrvector{1}{-\frac{1}{2}}}=\frac{1}{2}-\frac{2}{2}=0.$$
+  	\item $\nabla f(r(t_0))=\lrrvector{-2\sqrt{2}}{-4\sqrt{2}}, \nabla g(r(t_0))=\lrrvector{\frac{1}{\sqrt{2}}}{\sqrt{2}}\Rightarrow \lambda=-4$ and $\nabla f=\lambda \nabla g$ as desired. 
+  \end{enumerate}
+\end{exam}
+Now let us make this idea a rigorous statement. 
+\begin{defn}
+  For $f, g:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open, we say that $f$ has a local maximum \textcolor{blue}{(minimum)} under the constraint $g(x)=0$ at $t_0$, iff $$\begin{cases}x_0\in N_g(0):=\{x\in\Set{U}\st g(x)=0\}\\
+  \exists\text{neighbourhood }\Set{U}_0\subset\Set{U}\text{ of }x_0\text{ such that }f(x)\leq f(x_0)\textcolor{blue}{\left(f(x)\geq f(x_0)\text{, resp.}\right)}\qquad\forall x\in\Set{U}\cap N_g(0)\end{cases}.$$
+\end{defn}
+\begin{rem}
+  We will look for such local extrema under constraints for the values of functions in such points.
+\end{rem}
+\begin{thm}[method of Lagrange multipliers]
+  \label{thm:lagrangeMult}
+  Let $f, g:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open be continuously differentiable functions. Assume $f$ has a local extremum at $x_0\in\Set{U}$ under constraint $g(x)=0$. Then, assuming that $\nabla f(x_0), \nabla g(x_0)\neq0$, if follows that $\exists \lambda\in\RR\setminus\{0\}$ with $\nabla f(x_0)=\lambda\nabla g(x_0)$.
+\end{thm}

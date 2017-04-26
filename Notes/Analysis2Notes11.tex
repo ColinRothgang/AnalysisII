@@ -1,0 +1,20 @@
+\begin{proof}
+  Define $f:\Set{U}\to \RR^{n+m}, f(x,y):=(x,f(x,y))$, with $\Set{U}\subset \RR^{n}$ open. $f$ is continuously differentiable by definition. Showing $Df(x_0, y_0)\in\Invert{\RR{n+m}}$, we obtain using $f$ differentiable in $(x_0, y_0)$ that: $$F(x_0+h,y_0+k)=F(x_0, y_0)+A(n,k)+\phi(n,k).$$
+  Looking at $f$ in $x_0, y_0)$: \begin{align*}
+  	&f(x_0+h, y_0+k)-f(x_0,y_0)\\\eqSince{def. of $f$}&(x_0+h-x_0, y_0+k)\\\eqSince{def. of $F$}&(h,A(n,k)+\phi(h,k))\\=&(h,A(n,k))+(0,\phi(n,k)).
+  \end{align*}
+  So $Df(x_0, y_0)=(h,A(h,k))$. Now we need to show that $Df(x_0, y_0)(n,k)=(h,A(n,k))$ is invertible. We will show this, by proving $Df(x_0, y_0)(h,k)=0\Rightarrow(h,k)=(0,0)$, then for $h=0\follows{A inv.}A(h,k)=0\Rightarrow k=0$. Then the invertibility of $A$ follows (by linear algebra). Now applying the inverse function theorem \ref{thm:InvFT} to $f$ in $(x_0, y_0)$: 
+  $\exists\, \Set{U}_0\subset\Set{U}\text{open neighbourhood of }(x_0, y_0)\text{ so that }f(\Set{U})\subset\Invert{\RR{n+m}},\:(f|\Set{U}_0)^{-1}\text{ is continuous. differentiable on $f(\Set{U}_0)$}$ and $D(f|\Set{U}_0)^{-1}(f(x,y)) \\=(Df(x,y))\qquad\forall(x,y)\in\Set{U}_0$. 
+  
+  Define $\Set{V}_0:=\{x\in\RR^n:\:(x,0)\in f(\Set{U}_0)\}$, $\Set{V}_0$ open since $f(\Set{U}_0)$ is (since $f$ is open and $\Set{U}_0$ is open). 
+  
+  What does it mean that $f|\Set{U}_0:\Set{U}_0\to f(\Set{U}_0)$ is invertible?
+  It means: $$\existsUnique(x,y)\in\Set{U}_0\text{ s.t. }f(x,y)=(x,z)$$ or equivalently (definition of $\Set{V}_0$ and looking at $z=0$): $$\Leftrightarrow \forall x\in\Set{V}_0\:\existsUnique y\in\RR{m}\text{ s.t. }F(x,y)=0.$$
+  We will call this unique $y$ just $g(x)$ and obtain a function $g:\Set{V}_0\to\RR^m$ so that $F(x,g(x))=0,\qquad\forall x\in\Set{V}_0$. 
+  
+  Why is $g$ continuously differentiable?
+  By definition of $f$, we have $f(x,g(x))=(x,F(x,g(x)))=(x,0)\qquad\forall x\in\Set{V}_0$. Since $(f|\Set{U}_0)^{-1}$ continuously differentiable and $(x,g(x))=(f|\Set{U}_0)^{-1}(x,0)\qquad\forall x\in\Set{V}_0$. We can compute the differential of $g$ using chain rule: 
+  Defining $\phi:\Set{V}_0\to\RR{n+m}, \phi(x):=(x,g(x))$ we get on the one hand $$D\phi(x)(u)=(u,Dg(x))(u).$$ and on the other hand: $$\forall x\in\Set{V}_0.\;0=F(x,g(x))=F\circ\phi(x),$$ so by chain rule: $$0=DF(x,g(x))\circ D\phi(x).$$
+  Finally, applying both equalities, we obtain: 
+  $0=Df(x_0,y_0)\circ D\phi(x_0)u=A\circ (D\phi(x_0)u)=A(u,Dg(x_0)(u))=A(u,0)+A(0,Dg(x_0)(u))\eqSince{def. of $A_x, A_y$}A_x(u)+A_y(Dg(x_0)(u)).$ \\Since $A_y\in\Invert{\RR^m}$ we get $Dg(x_0)=-A_y^{-1}\circ A_x$.
+\end{proof}
