@@ -3,7 +3,7 @@
 \end{rem}
 \section[Differentiability]{Differentiability; linear maps, matrices and the operator norm}
 \begin{defn}
- Let $\Set{X}$, $\Set{Y}$ be two vector spaces over $\RR$. A map $A:\Set{X}\to\Set{Y}$ is called linear iff $A(\alpha x+\beta y)=\alpha A(x)+\beta A(x)\qquad \forall \alpha, \beta\in\RR, \forall x,y\in\Set{X}$. The set of linear maps $\Set{X}\to\Set{Y}$ is denoted by $L(\Set{X}, \Set{Y})$. $L(\Set{X},\Set{X})$ is denoted $L(\Set{X})$. Often we write $A\ x$ instead of $A(x)$. 
+ Let $\Set{X}$, $\Set{Y}$ be two vector spaces over $\RR$. A map $A:\Set{X}\to\Set{Y}$ is called \emph{linear} iff $A(\alpha x+\beta y)=\alpha A(x)+\beta A(x)\qquad \forall \alpha, \beta\in\RR, \forall x,y\in\Set{X}$. The set of linear maps $\Set{X}\to\Set{Y}$ is denoted by $L(\Set{X}, \Set{Y})$. $L(\Set{X},\Set{X})$ is denoted $L(\Set{X})$. Often we write $A\ x$ instead of $A(x)$. 
 \end{defn}
 \subsection*{Facts:}
 \begin{enumerate}
@@ -20,7 +20,7 @@
  The set $\Set{M}^{m\x n}(\RR)$ of $(m\x n)$-matrices $\forall m,n\in\NN$ fixed consists of all vectors in $\RR{m\cdot n}$ written in a ``separable form'' i.e. $$A:=(a_{i,j})\begin{matrix}1\leq i\leq n\\1\leq j\leq m\end{matrix}=:\left(\begin{matrix}a_{1,1}, a_{1,2},\ldots, a_{1,n}\\a_{2,1}, a_{2,2},\ldots, a_{2,n}\\\vdots\\ a_{m,1}, a_{m,2},\ldots, a_{m,n}\end{matrix}\right).$$
 \end{defn}
 \begin{defn}
- Matrix multiplication is defined by:
+ \emph{Matrix multiplication} is defined by:
  Let $A\in\RLinSpaNM{n}{m}, B\in\RLinSpaNM{m}{p}$. Then $C:= A\cdot B:=(c_{k,j})\begin{matrix}1\leq j\leq n\\1\leq k\leq p\end{matrix}$, where $c_{k,j}=\sum_{i=1}^{m}a_{i,j}b_{k,i}\in\RLinSpaNM{n}{p}$. Furthermore, $A\in\RLinSpaNM{m}{n}$ is called invertible iff $\exists A^{-1}\in\RLinSpaNM{n}{m}$. $AA^{-1}=A^{-1}A=I_n:=\left(\begin{matrix}1\ 0\ 0\ \ldots 0\\0\ 1\ 0\ 0\ldots\\\vdots\\0\ 0\ \ldots 0\ 1\end{matrix}\right)$ ($\Rightarrow m=n$), where $I_n$ is the identity matrix.
 \end{defn}
 \begin{rem}
@@ -39,7 +39,7 @@
 	$\Set{M}^{m\x n}$ is topologically just $\RR{m\cdot n}$. 
 \end{rem}
 \begin{defn}[operator norm]
- For $A\in L(\Set{X},\Set{Y})$, define the operator norm by $\Norm{A}:=\sup_{\Norm{x}\leq 1}\Norm{A x}$.
+ For $A\in L(\Set{X},\Set{Y})$, define the \emph{operator norm} by $\Norm{A}:=\sup_{\Norm{x}\leq 1}\Norm{A x}$.
 \end{defn}
 \begin{rem}
  operator norm not isometric to $\Norm{\cdot}_2$.

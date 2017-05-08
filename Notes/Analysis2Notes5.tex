@@ -70,14 +70,14 @@
   The special case is a generalisation of hte statement that if $f:I\to \RR$ is differentiable with $f\cong 0$, then $f$ must be constant. 
 \end{rem}
 \begin{defn}
-  Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open and consider $x_0\in\Set{U}$ and $v\in\RR^n$ so that $\Norm{v}=1$. If the limit exists $D_vf(x_0):=\lim_{t\to 0}\frac{f(x_0+tv)-f(x_0)}{t}$, it is called the directional derivative of $f$ in $x_0$ in direction of $v$. 
+  Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open and consider $x_0\in\Set{U}$ and $v\in\RR^n$ so that $\Norm{v}=1$. If the limit exists $D_vf(x_0):=\lim_{t\to 0}\frac{f(x_0+tv)-f(x_0)}{t}$, it is called the \emph{directional derivative} of $f$ in $x_0$ in direction of $v$. 
 \end{defn}
 \begin{exam}
   $f:\RR^2\to \RR, f(x,y):=\begin{cases}
   \frac{xy}{x^2+y^2}\qquad (x,y)\neq 0\\0\qquad\text{otherwise}\end{cases}$. We can check that the partial and even the total differential exist in all $(x,y)\neq 0$, but $f$ is not continuous in $0$. It is, however, more interesting to look for $f$ in $0$. So we will later come back to this example. 
 \end{exam}
 \begin{defn}
-  If $v=e_j\qquad\forall j\in\upto{n}$ in previous definition, then the corresponding directional derivatives the $j$-th partial derivatives of $f$ in $x_0$ denoted by $f_{x_j}(x_0), D_j(f(x_0)), \frac{\partial f}{\partial x_j}(x_0)$. 
+  If $v=e_j\qquad\forall j\in\upto{n}$ in previous definition, then the corresponding directional derivatives are called the \emph{partial derivatives with respect to $x_j$} of $f$ in $x_0$ denoted by $f_{x_j}(x_0), D_j(f(x_0)), \frac{\partial f}{\partial x_j}(x_0)$. 
 \end{defn}
 \begin{exam}\ 
   \begin{enumerate}
@@ -88,7 +88,7 @@
   \end{enumerate}
 \end{exam}
 \begin{defn}
-  $f:\Set{U}\to\RR$, $\Set{U\subset\RR}$ open is called partially differentiable iff partial derivatives exist and are continuous on $\Set{U}$. 
+  $f:\Set{U}\to\RR$, $\Set{U\subset\RR}$ open is called \emph{partially differentiable} iff partial derivatives exist and are continuous on $\Set{U}$. 
 \end{defn}
 \begin{exam}
   \begin{enumerate}
@@ -97,7 +97,7 @@
   \end{enumerate}
 \end{exam}
 \begin{defn}[Jacobean]
-  $f:\Set{U}\to\RR^m$, $\Set{U}\subset\RR^n$ open, so that all partial derivatives $\frac{\partial f_i}{\partial x_j}(x_0), \forall i\in\upto{m}, j\in\upto{n}$ in $\x_o$ exist. Then the matrix $J_f(x_0):=\left(\frac{\partial f_i}{\partial x_j}\right)_{1\leq n}^{1\leq m}\in\RLinSpaNM{m}{n}$ is called the Jacobean matrix of $f$ in $x_0$. 
+  $f:\Set{U}\to\RR^m$, $\Set{U}\subset\RR^n$ open, so that all partial derivatives $\frac{\partial f_i}{\partial x_j}(x_0), \forall i\in\upto{m}, j\in\upto{n}$ in $\x_o$ exist. Then the matrix $J_f(x_0):=\left(\frac{\partial f_i}{\partial x_j}\right)_{1\leq n}^{1\leq m}\in\RLinSpaNM{m}{n}$ is called the \emph{Jacobean matrix} of $f$ in $x_0$. 
 \end{defn}
 \begin{rem}
   We will see that in the special case $m=1$, the Jacobean is also called gradient of $f$ in $x_0$ and has a special geometric meaning. 

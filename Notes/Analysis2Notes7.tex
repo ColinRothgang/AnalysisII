@@ -29,8 +29,8 @@
   	\item $f:t\to\lrrvector{f}{\frac{1}{t}}, g:\lccvector{u}{v}\to uv\Rightarrow J_f(\lrrvector{1}{-\frac{1}{t^2}}), J_g(\lccvector{u}{v})=\lccvector{v}{u}\follows{chain rule}J_{g\circ f}(t)=J_g\cdot J_f=\lccvector{\frac{1}{t}}{t}\lrrvector{1}{\frac{1}{t^2}}=\frac{1}{t}-\frac{1}{t}=0$. 
   \end{enumerate}
 \end{exam}
-\begin{defn}
-  Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open, partially differentiable in $x_0\in\Set{U}$. Then, the Jacobean of $f$ in $x_0$ is also called the gradient of $f$ in $x_0$ an denoted by $\nabla f(x_0)$. Thus, we have $\nabla f(x_0)=\sum_{j=1}^{n}\partDeriv{f}{x_j}(x_0)e_j=\lcccvector{\partDeriv{f}{x_1}}{\ldots}{\partDeriv{f}{x_n}}$. 
+\begin{defn}[gradient]
+  Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open, partially differentiable in $x_0\in\Set{U}$. Then, the Jacobean of $f$ in $x_0$ is also called the \emph{gradient} of $f$ in $x_0$ an denoted by $\nabla f(x_0)$. Thus, we have $\nabla f(x_0)=\sum_{j=1}^{n}\partDeriv{f}{x_j}(x_0)e_j=\lcccvector{\partDeriv{f}{x_1}}{\ldots}{\partDeriv{f}{x_n}}$. 
 \end{defn}
 \begin{rem}
   We will see that the gradient can be used to compare directional derivatives and we can interpret it geometrically as the direction of maximal increase of $f$ in $x_0$. 

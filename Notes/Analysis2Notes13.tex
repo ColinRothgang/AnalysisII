@@ -1,6 +1,6 @@
 \section{local extrema with constraints}
 Lagrange multipliers: $\nabla f=\lambda\nabla g$\\
-\subsubsection*{Idea:}
+\paragraph{Idea:}
 Imagine we are running up a mountain;\\
 Q: What happens in the point where the trajectory has a local maximum?\\
 A: The trajectory is parallel to the level lines in that local maximum
@@ -32,8 +32,8 @@ A: The trajectory is parallel to the level lines in that local maximum
 \end{exam}
 Now let us make this idea a rigorous statement. 
 \begin{defn}
-  For $f, g:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open, we say that $f$ has a local maximum \textcolor{blue}{(minimum)} under the constraint $g(x)=0$ at $t_0$, iff $$\begin{cases}x_0\in N_g(0):=\{x\in\Set{U}\st g(x)=0\}\\
-  \exists\text{neighbourhood }\Set{U}_0\subset\Set{U}\text{ of }x_0\text{ such that }f(x)\leq f(x_0)\textcolor{blue}{\left(f(x)\geq f(x_0)\text{, resp.}\right)}\qquad\forall x\in\Set{U}\cap N_g(0)\end{cases}.$$
+  For $f, g:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open, we say that $f$ has a \emph{local maximum \textcolor{blue}{(minimum)} under the constraint} $g(x)=0$ at $t_0$, iff $$\begin{cases}x_0\in N_g(0):=\{x\in\Set{U}\st g(x)=0\}\\
+  \exists\mathrm{ nbhd. }\Set{U}_0\subset\Set{U}\text{ of }x_0\text{ such that }f(x)\leq f(x_0)\ \textcolor{blue}{\left(f(x)\geq f(x_0)\text{, resp.}\right)}\ \forall x\in\Set{U}\cap N_g(0)\end{cases}.$$
 \end{defn}
 \begin{rem}
   We will look for such local extrema under constraints for the values of functions in such points.

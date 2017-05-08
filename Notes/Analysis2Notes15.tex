@@ -1,0 +1,58 @@
+\chapter{Integration in several variables}
+\section{Motivation}
+Just as in the case of a function $f:[a,b]\to\RR$, where $\int_{a}^{b}f(x)\dx$ can be interpreted as the area of the region below the graph, we may also ask for the volume of the region of a function of several variables. 
+
+\subsubsection*{First idea:}
+Take a iterated 1-dimensional integral. 
+
+We can integrate first in the second variable, first in the second variable, \ldots.
+\paragraph{Question:}
+Are these actually the same?
+
+In order to define the integral properly, we need some ``general notion'' of integration, with the corresponding desired properties. For this, we need some preparation. 
+
+\begin{defn}[$n$-cell]
+  A \emph{$n$-cell} $I$, $n\in\NN$ \emph{in $\RR^n$} is a cartesian product of compact intervals $[a_i, b_i]$ as follows: $$I:=[a_1,b_1]\x \ldots\x [a_n, b_n]=\{(x_1, x_2,\ldots,x_n)\in\RR^n:a_j\leq x_j\leq b_j\;\forall j\in\upto{n}\}\subset\RR^n.$$
+  $n$-cells are called \emph{compact intervals in $\RR^n$}. 
+\end{defn}
+\begin{defn}[open interval in $\RR^n$]
+  An \emph{open interval in $\RR^n$} is a set of the form $$\mathfrak{O}:=(a_1, b_1)\x \ldots (a_n, b_n)=\{(\fseq{x}{n})\in\RR^n:a_j<x_j<b_j\;\forall j\in\upto{n}\}.$$
+\end{defn}
+\begin{defn}[Volume of a $n$-cell]
+  The \emph{volume} $\abs{I}$ of a $n$-cell $I:=[a_1, b_1]\x\ldots \x[a_1, b_n]\subset \RR^n$ is defined by $\abs{I}:=\Pi_{j=1}^n (b_j-a_j)$.
+\end{defn}
+\begin{defn}[Partition of a $n$-cell]
+  A \emph{partition of a $n$-cell} $I:=[a_1, b_1]\x\ldots \x[a_1, b_n]\subset \RR^n$
+   is defined as the product $\rho_1\x\rho_2\x\ldots\rho_n$ of partitions $\rho_j, j\in\upto{n}$ of the defining interval $[a_j,b_j], j\in\upto{n}$ i.e. $a_j=x_0\leq x_1\leq\ldots\leq x_{m_j}=b_j\ \forall j\in\upto{n}$.
+\end{defn}
+\begin{exam}
+  $I:=[a,b]\x [c,d]$, $\rho_1:a=x_0\leq x_2\leq \ldots \leq x_l=b$, $\rho_2:c=y_0\leq y_2\leq \ldots \leq y_l=d$. Then $\rho=\rho_1\x \rho_2$.
+\end{exam}
+\begin{rem}
+  If $\fseq{I}{k}$ are sub $n$-cells induced by a partition $\rho$ of the $n$-cell $I:=[a_1, b_1]\x\ldots \x[a_1, b_n]\subset \RR^n$, then $I=\bigcup_{j\in\upto{k}}I_j, \interior{I_j}\cap I_j\neq 0\;\forall j\neq j$ and $\abs{I}:=\sum_{j=1}^{k}\abs{I_j}$.
+\end{rem}
+\begin{defn}[refinement]
+  Consider $\rho, \rho'$ partitions of the $n$-cell $I\subset\RR^n$ (note we look at partitions as being discrete subsets of the given $n$-cell). $\rho'$ is called \emph{refinement} of $\rho$ iff $\rho'\supset \rho$.
+\end{defn}
+\begin{defn}[union of partitions]
+  The union of two partitions $\rho_1, \rho_2$ is defined as $\rho_1\cup \rho_2$. 
+\end{defn}
+\begin{defn}
+  $\rho_1\cup \rho_2$ is a refinement of both $\rho_1$ and $\rho_2$.
+\end{defn}
+\begin{defn}[refinement norm]
+  The \emph{refinement measure} or \emph{refinement norm} of a partition $\rho$ of the $n$-cell $I:=[a_1, b_1]\x\ldots \x[a_1, b_n]\subset \RR^n$ is defined as $$\Norm{\rho}:=\max_{j\in\upto{k}}\Norm{\rho_j},$$ where $\rho:=\rho_1\x \rho_2\x\ldots\x\rho_n$ with $\rho_j$ being a partition of $[a_j, b_j]$ for all $j\in\upto{n}$ and with the refinement norm of a partition $\varrho:=\{x_i\}_{i\in\upto{m}}$ (in 1-dimension) being defined as $$\Norm{\varrho}:=\max_{i\in\{2, 3,\ldots, m\}} (x_i-x_{i-1}).$$
+\end{defn}
+
+
+\begin{lem}
+  \label{lem:refinement}
+  If $\rho_0\subset \rho$ partitions of $I$, $f$ bounded $\RR-$integrable, then $\underline{S}(f,\rho_0)\leq \underline{S}(f,\rho)$ and $\overline{S}(f,\rho)\leq\overline{S}(f,\rho_0)$.
+\end{lem}
+\begin{proof}
+  This proof is left as an exercise to the reader.
+\end{proof}
+
+\begin{defn}[lower and upper sum]
+  \ \\$\ddots$
+\end{defn}

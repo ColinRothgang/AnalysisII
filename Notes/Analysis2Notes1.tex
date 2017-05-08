@@ -6,7 +6,7 @@ It's important to study the way functions in several variables change (leading t
   \item Lagrange energy field $L(q_1, q_2,\ldots, q_n, \dot{g_1}, \dot{g_2}, \ldots, \dot{g_n})$, where $G_i=g_i(t), \forall i\in\{1, \ldots, n\}$ are positive variables and $\dot{q_1}, \dot{q_2}, \ldots, \dot{g_n}$ are the temporal derivatives of the position. Now we can write equations like $L=K-V$, where $K$ denotes the kinetic energy and $V$ the potential energy. 
  \end{itemize}
 \end{exam}
-\paragraph{Base idea}
+\paragraph{Base idea:}
 Understand differentiation as linearisation. In one dimension this corresponds to finding the tangent line to the graph of a function. In two dimensions we can look either for tangent lines (partial differentiability) or a tangent plane (total differentiability). We will see that total differentiability $\implies$ partial differentiability.
 \section{Norms, Metrics and Banach and Hilbert spaces}
 \begin{defn}
@@ -17,11 +17,11 @@ Understand differentiation as linearisation. In one dimension this corresponds t
   \item $\Norm{x+y}\leq\Norm{x}+\Norm{y}, \,\forall x,y\in\Set{X}$
  \end{enumerate}
 \end{defn}
-\begin{defn}
- On $\RR^n$ we define the $p$-norm $\Norm{\cdot}_p:\RR^n\to\RR{\geq 0}$ by:
+\begin{defn}[$p$-norm]
+ On $\RR^n$ we define the \emph{$p$-norm} $\Norm{\cdot}_p:\RR^n\to\RR{\geq 0}$ by:
  $$\forall p\in\NN,\, \forall x\in\RR^n.\ \Norm{x}_p:=\Norm{(x_1, x_2\ldots, x_n)}_p:=\left(\abs{\sum_{i=1}^{n}\abs{x_i}^p}\right)^{\frac{1}{p}}.$$
 \end{defn}
-For $p=1$ we call the norm the Manhatten norm, for $p=2$ we call the norm the Euclidean norm, which is defined by the inner product $\inPro{\cdot}{\cdot}:\RR^n\times \RR^n\to\RR, \inPro{x}{y}:=\sum_{i}x_iy_i$ in the sense that $$\Norm{x}_2:=\left(\abs{\inPro{x}{x}}\right)^\frac{1}{2}$$
+For $p=1$ we call the norm the \emph{Manhatten norm}, for $p=2$ we call the norm the \emph{Euclidean norm}, which is defined by the inner product $\inPro{\cdot}{\cdot}:\RR^n\times \RR^n\to\RR, \inPro{x}{y}:=\sum_{i}x_iy_i$ in the sense that $$\Norm{x}_2:=\left(\abs{\inPro{x}{x}}\right)^\frac{1}{2}$$
 \begin{exc}
  The $p$-norm is a norm on $\RR^n$. 
 \end{exc}
@@ -29,7 +29,7 @@ For $p=1$ we call the norm the Manhatten norm, for $p=2$ we call the norm the Eu
  A vector space equipped with a norm is called normed vector space.
 \end{defn}
 \begin{defn}
- A complete normed vector space is called Banach space.
+ A complete normed vector space is called \emph{Banach space}.
 \end{defn}
 \begin{defn}
  A Banach space with an inner product $\inPro{x}{y}$ is called a Hilbert space iff its norm is defined by $\Norm{x}:=\sqrt{\inPro{x}{x}}$.
@@ -55,8 +55,8 @@ For $p=1$ we call the norm the Manhatten norm, for $p=2$ we call the norm the Eu
   $$\Ball{x}{R}:=\{y\in\Set{X}:  \dist{x}{y}<R\},$$
   are called ``open balls in $\Set{X}$'' (centered at $x$ with radius $R$). For example, we define a topology in $\RR^n$ by saying that a set $\Set{O}\subset\RR^n$ is open iff $\forall x\in\Set{O}, \exists R=R(x)>0. \,\Ball{x}{R}\subset\Set{O}$.
 \end{rem}
-\begin{defn}
- A sequence $(x_k)_{k\in\NN}$ in $\RR^n$ converges to $\Set{X}\in\RR^n$ iff $\Norm{x_k-x}\overset{k\to\infty}{\longrightarrow}0$, or equivalently if $\forall \epsilon>0.\,\exists N\in\NN, \,\forall n\geq N\in\NN.\ \Norm{x_n-x}<\epsilon$ or equivalently $\forall x\in\RR^n,\,\forall \Set{O}\text{ open},\,x\in\Set{O}.\,\exists N\in\NN.\,\forall n\geq N\in\NN.\ x_n\in\Set{O}$. If the limit exists we write $\lim_{k\to\infty}x_k$.
+\begin{defn}[limits]
+ A sequence $(x_k)_{k\in\NN}$ in $\RR^n$ \emph{converges} to $\Set{X}\in\RR^n$ iff $\Norm{x_k-x}\overset{k\to\infty}{\longrightarrow}0$, or equivalently if $\forall \epsilon>0.\,\exists N\in\NN, \,\forall n\geq N\in\NN.\ \Norm{x_n-x}<\epsilon$ or equivalently $\forall x\in\RR^n,\,\forall \Set{O}\text{ open},\,x\in\Set{O}.\,\exists N\in\NN.\,\forall n\geq N\in\NN.\ x_n\in\Set{O}$. If the limit exists we write $\lim_{k\to\infty}x_k$.
 \end{defn}
 \begin{lem}
  \label{lem:comp}
@@ -72,7 +72,8 @@ For $p=1$ we call the norm the Manhatten norm, for $p=2$ we call the norm the Eu
  $x_k:=(\frac{1}{k},\frac{1}{k})_{k\in\NN}\Rightarrow \lim_{k\to\infty}x_k=(0,0)=0$
  We can use this sequence, by applying sandwich theorem, on the components sequences of a sequence of vectors.
 \end{exam}
-\begin{defn} Let $\Set{X}$ be any set. Now a point $a\in\Set{X}$ is called an accumulation point of $\Set{X}$ iff $\forall \epsilon'>0:\,(\Ball{a}{\epsilon'}\setminus\{a\})\cap \Set{U}\neq \emptyset$. 
+\begin{defn}[accumulation point]
+  Let $\Set{X}$ be any set. Now a point $a\in\Set{X}$ is called an \emph{accumulation point} of $\Set{X}$ iff $\forall \epsilon'>0:\,(\Ball{a}{\epsilon'}\setminus\{a\})\cap \Set{U}\neq \emptyset$. 
 \end{defn}
 \begin{defn}
  Let $f:\Set{U}\to\RR^n, \Set{U}\subset\RR^n$, let $a$ be an accumulation point for $\Set{U}$. If $\exists L\in\RR,\,\forall\epsilon>0.\,\exists\delta>0.\ \Norm{f(x)-L}<\epsilon\qquad\forall x\in \Set{U}\cap(\Ball{a}{\delta}\setminus\{a\})$, then $L$ is the limit of $f$ at $a$, denoted by $L=\lim_{x\to a}f(x)$. 

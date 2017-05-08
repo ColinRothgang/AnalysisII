@@ -6,7 +6,7 @@
   The proof is left as an exercise to the reader. 
 \end{exam}
 \begin{defn}
-  Let $\Set{U}\to\RR, \Set{U}\subset\RR^n$ open be some function and consider $l\in\RR$. The level set (also called contour-line, \ldots) of $f$ at level $l$ is defined as $\Set{N}_f(l):=\{x\in\Set{U}:f(x)=l\}$. 
+  Let $\Set{U}\to\RR, \Set{U}\subset\RR^n$ open be some function and consider $l\in\RR$. The \emph{level set} (also called contour-line, \ldots) of $f$ at level $l$ is defined as $\Set{N}_f(l):=\{x\in\Set{U}:f(x)=l\}$. 
 \end{defn}
 \begin{prop}
   Let $f:\Set{U}\to\RR, \Set{U}\subset\RR^n$ open be differentiable on $w$. Then, $\nabla f(x)$ with  is orthogonal to $\lev{f}{f(x_0}$ i.e. for any continuous differentiable mapping $\phi:(-\epsilon,\epsilon)\to\lev{f}{f(x_0}$, with $\phi(0)=x_0$ we have $\inPro{\nabla f(x_0)}{\phi'(0)}$.
@@ -26,7 +26,7 @@
   Now iff $f$ is partially differentiable, we say $f$ is $1$-times partially differentiable. If $f$ is $k$-times differentiable for $k\in\NN$, we call $f$ $k+1$-times partially differentiable iff the $k$-th partial derivatives are all partially differentiable. 
 \end{defn}
 \subsection*{Notation}
-$\forall \text{finite sequences}\fseq{i}{k}$ we write $\frac{\partial^k f}{\partial x_{i_1}\ldots\partial x_{i_n}}:=\frac{\partial}{\partial x_{i_1}}\left(\frac{\partial}{\partial x_{i_2}}\left(\ldots\left(\partDeriv{f}{x_{i_n}}\right)\right)\right)$.
+$\forall \text{finite sequences }\fseq{i}{k}$ we write $\frac{\partial^k f}{\partial x_{i_1}\ldots\partial x_{i_n}}:=\frac{\partial}{\partial x_{i_1}}\left(\frac{\partial}{\partial x_{i_2}}\left(\ldots\left(\partDeriv{f}{x_{i_n}}\right)\right)\right)$.
 In particular for $k=2$, we have $\frac{\partial f}{\partial x_i\partial x_j}:=\frac{\partial}{\partial x_i}\left(\partDeriv{f}{x_j}\right)\qquad\forall i, j\in\upto{n}$. 
 
 \begin{prop}[Schwartz theorem]
