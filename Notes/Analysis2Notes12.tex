@@ -1,0 +1,57 @@
+\section{Taylor's formula in several variables}
+\subsubsection*{Idea}
+We shall first generalize the Taylor in one variable: 
+\begin{equation*}
+  f(x+h) = \sum_{i=0}^k\frac{f^{(i)}(x)}{i!}h^i + \frac{f^{(k+1)}(\theta)}{(k+1)!} \:\:\: \theta \in [x, x+h]
+\end{equation*}
+Differentiability insures the existence of a linear approximation of the function of several variables; with higher differentiability resulting in ``higher order approximations''.
+
+\subsubsection*{Notation:}
+For $\alpha = (\alpha_1, \dots, \alpha_n) \in (\NN \cup {0})^n$ and $x = (x_1, \dots, x_n) \in \RR^n$ \\
+$|\alpha| := \alpha_1 + \dots + \alpha_n$ \\
+$\alpha ! := \alpha_1! \times \dots \times \alpha_2!$ \\
+$x^\alpha := x_1^{\alpha_1} \times \dots \times x_n^{\alpha_n}$
+
+\begin{thm}[Taylor's formula in several variables]
+Let $f: u \to \RR, u \subset \RR^n$ (open) be $p$ times partially continuously differentiable, i.e:
+\begin{equation*}
+  D^\alpha f = D_1^{\alpha_1} \dots D_n^{\alpha_n}f = \frac{\partial^{|\alpha|}f}{\partial x_1^{\alpha_1} \dots \partial x_n^{\alpha_n}} = \frac{\partial^{\alpha_1}}{\partial x_1^{\alpha_1}}\left( \frac{\partial^n}{\partial x^{\alpha_{n-1}}_{n-1}} \bigg( \dots \bigg) \right)
+\end{equation*}
+exists and are continuous $\forall \alpha \in (\NN \cup {0})^n$ with $|\alpha| \leq p$. Assume $x\in u$ and $h \in \RR^n$ so that $[x, x+h] \subset u$. $\exists \theta \in [0, 1]$ so that
+\begin{equation*}
+  f(x+h) = \sum_{|\alpha| \leq k}\frac{D^\alpha f(x)}{\alpha !}h^\alpha + \sum_{|\alpha| = k+1}\frac{D^\alpha f(x+\theta h)}{\alpha !} h^\alpha
+\end{equation*}
+\end{thm}
+
+Note that th  ``generalised schwarts theorem'' insures that $\left( D_{i_k}\dots D_{i_1} \right) f = D_{i_{\sigma(k)}} \dots D_{i_{\sigma(1)}} f. \forall i_k \in \{1, \dots, n\}. k \in \NN . k \leq p $ and all permutations $\sigma$ of the set $\{1, \dots, k\}$   
+
+\begin{proof} \par
+  \begin{enumerate}
+  \item We propose the following technical lemma
+    \begin{lem}
+      Let $f: u \to \RR, u \subset \RR^n$ open and $f$ is $k$ times partially continuously differentiable with $k\in \NN$. Let $x \in u. h\in \RR^n$ so that $[x, x+h] := \{x+th: t \in [0, 1]\} \subset u$. Then $g: [0,1] \to \RR. g(t):=f(x+th)$ is $k$ times partially continuously differentiable and $g^{(k)}(t) = \sum_{|\alpha|=k}\frac{k!}{\alpha!}D^\alpha f(x+th) h^\alpha$ where the sum is over all $\alpha = (\alpha_1, \dots, \alpha_n) \in (\NN \cup \{0\})^n$ with $|\alpha| = k$.
+    \end{lem}
+
+    \begin{proof}
+      \begin{enumerate}
+      \item We show by induction over $k \in \NN$
+        \begin{equation*}
+          g^{(k)}(t) = \sum_{i_1, \dots, i_k}^n D_{i_k} \dots D_{i_1}f(x+th)h_{i_1} \dots h_{i_k}
+        \end{equation*}
+      Base case ($k = 1$). Using chain rule:
+        \begin{equation*}
+          g'(t) = \sum^n_{j=1} \frac{\partial f}{\partial x_j}(x+th)h_j
+        \end{equation*}
+      Induction step $(k - 1 \implies k)$. Using chain rule:
+        \begin{align*}
+          g^{(k)}(t) = \frac{d}{dt}\left(\sum^n_{i=1, \dots, i_{k-1}}D_{i_{k-1}} \dots D_{i_1} f(x+th)h_ih_{k-1} \right) \\
+          = \sum^n_{j=1}D_j\left(\sum^n_{i=1, \dots, i_{k-1}}D_{i_{k-1}} \dots D_{i_1} f(x+th)h_ih_{k-1} \right)h_j \\
+          = \sum^n_{i_1, \dots, i_k = 1}D_{i_k}D_{i_{k-1}}\dots D_{i_1}f(x+h)h_{i_1}\dots h_{i_{k-1}}h_k
+        \end{align*}
+
+      \item Using ``schwarz'' theorem to ``simplify'' the above formula, assuming that, amongst the indices $i_n, \dots, i_k$, $1$ occurs $\alpha_1$ times, \dots
+      \end{enumerate}
+    \end{proof}
+
+  \end{enumerate}
+\end{proof}
